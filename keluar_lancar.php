@@ -135,17 +135,17 @@ session_start();
                                 Keluarkan Barang
               </button>
               <a href="export.php" class="btn btn-info" target="_blank">Export Laporan</a>
-              <div class="row mt-2">
-                <div class="col">
-                    <form method="POST" class="form-inline">
-                        <label><strong>From Date</strong></label>
-                        <input type = "date" name="tgl_mulai" class="form-control mb-3">
-                        <label><strong>To Date</strong></label>
-                        <input type = "date" name="tgl_selesai" class="form-control mb-3">
-                        <button type="submit" name="filter" class="btn btn-info ml-3">Filter</button>
-                    </form>
+                <div class="row mt-2">
+                    <div class="col">
+                        <form method="POST" class="form-inline">
+                            <label><strong>From Date</strong></label>
+                            <input type = "date" name="tgl_mulai" class="form-control mb-3">
+                            <label><strong>To Date</strong></label>
+                            <input type = "date" name="tgl_selesai" class="form-control mb-3">
+                            <button type="submit" name="filter" class="btn btn-info ml-3">Filter</button>
+                        </form>
+                    </div>
                 </div>
-            </div>
 
                             <!-- The Modal -->
                         <div class="modal fade" id="myModal">
@@ -349,6 +349,6 @@ session_start();
             if (window.history.replaceState ) {
                 window.history.replaceState( null, null, window.location.href );
                 }
-        </script>
+    </script>
   </body>
 </html>
