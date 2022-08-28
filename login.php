@@ -32,7 +32,7 @@ error_reporting(0);
 session_start();
  
 if (isset($_SESSION['email'])) {
-    header("Location: master.php");
+    header("Location: index.php");
 };
  
 if (isset($_POST['login'])) {
@@ -44,7 +44,7 @@ if (isset($_POST['login'])) {
     if ($result->num_rows > 0) {
         $row = mysqli_fetch_assoc($result);
         $_SESSION['email'] = $row['email'];
-        header("Location: master.php");
+        header("Location: index.php");
     } else {
         echo "<script>alert('Email atau password Anda salah. Silahkan coba lagi!')</script>";
     };

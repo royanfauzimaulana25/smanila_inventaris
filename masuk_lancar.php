@@ -99,7 +99,7 @@ session_start();
                                                 <path d="M8 4.754a3.246 3.246 0 1 0 0 6.492 3.246 3.246 0 0 0 0-6.492zM5.754 8a2.246 2.246 0 1 1 4.492 0 2.246 2.246 0 0 1-4.492 0z"/>
                                                 <path d="M9.796 1.343c-.527-1.79-3.065-1.79-3.592 0l-.094.319a.873.873 0 0 1-1.255.52l-.292-.16c-1.64-.892-3.433.902-2.54 2.541l.159.292a.873.873 0 0 1-.52 1.255l-.319.094c-1.79.527-1.79 3.065 0 3.592l.319.094a.873.873 0 0 1 .52 1.255l-.16.292c-.892 1.64.901 3.434 2.541 2.54l.292-.159a.873.873 0 0 1 1.255.52l.094.319c.527 1.79 3.065 1.79 3.592 0l.094-.319a.873.873 0 0 1 1.255-.52l.292.16c1.64.893 3.434-.902 2.54-2.541l-.159-.292a.873.873 0 0 1 .52-1.255l.319-.094c1.79-.527 1.79-3.065 0-3.592l-.319-.094a.873.873 0 0 1-.52-1.255l.16-.292c.893-1.64-.902-3.433-2.541-2.54l-.292.159a.873.873 0 0 1-1.255-.52l-.094-.319zm-2.633.283c.246-.835 1.428-.835 1.674 0l.094.319a1.873 1.873 0 0 0 2.693 1.115l.291-.16c.764-.415 1.6.42 1.184 1.185l-.159.292a1.873 1.873 0 0 0 1.116 2.692l.318.094c.835.246.835 1.428 0 1.674l-.319.094a1.873 1.873 0 0 0-1.115 2.693l.16.291c.415.764-.42 1.6-1.185 1.184l-.291-.159a1.873 1.873 0 0 0-2.693 1.116l-.094.318c-.246.835-1.428.835-1.674 0l-.094-.319a1.873 1.873 0 0 0-2.692-1.115l-.292.16c-.764.415-1.6-.42-1.184-1.185l.159-.291A1.873 1.873 0 0 0 1.945 8.93l-.319-.094c-.835-.246-.835-1.428 0-1.674l.319-.094A1.873 1.873 0 0 0 3.06 4.377l-.16-.292c-.415-.764.42-1.6 1.185-1.184l.292.159a1.873 1.873 0 0 0 2.692-1.115l.094-.319z"/>
                                             </svg>
-                                            &nbsp; Kategori
+                                            &nbsp; Kategori & Satuan
                                         </a>
                                         
                                         <!-- Menu Manajemen User -->
@@ -132,11 +132,25 @@ session_start();
                         <div class="card mb-4">
                             <div class="card-body"></div>
                         </div>
-                        <div class="card mb-4">
+                        <div class="card mb-4 ">
                             <div class="card-header">
                                 <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#myModal">
-                                                    Input Barang
-                                </button>
+                                 Input Barang
+                                </button>    
+                                
+                                <br>
+                                <div class="row mt-2">
+                                    <div class="col">
+                                        <form method="POST" class="form-inline">
+                                            <label><strong>From Date</strong></label>
+                                            <input type = "date" name="tgl_mulai" class="form-control mb-3">
+                                            <label><strong>To Date</strong></label>
+                                            <input type = "date" name="tgl_selesai" class="form-control mb-3">
+                                            <button type="submit" name="filter" class="btn btn-info ml-3">Filter</button>
+                                        </form>
+                                    </div>
+                                </div>
+
 
                                 <!-- The Modal -->
                                 <div class="modal fade" id="myModal">
@@ -333,5 +347,30 @@ session_start();
         <script src="assets/demo/chart-bar-demo.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" crossorigin="anonymous"></script>
         <script src="js/datatables-simple-demo.js"></script>
+        <script>
+            $("#getJsonSrc").click(function() {
+  $("#dataTable thead").show();
+  var $table = $("#dataTable"),
+    $startDate = new Date($("#dateFrom").val()),
+    $endDate = new Date($("#dateTo").val()),
+    $jsonSrc = "https://s3-us-west-2.amazonaws.com/s.cdpn.io/77979/demo.json";
+
+  var my_array;
+  $.getJSON($jsonSrc).success(function(data) {
+    my_array = [];
+
+    for (var i = 0; i < data.length; i++) {
+      var this_date = new Date(data[i].date);
+      if ((this_date >= $startDate) && (this_date <= $endDate)) {
+        my_array.push(data[i]);
+
+      }
+    }
+    my_array = JSON.stringify(my_array);
+    alert(my_array);
+  });
+  $table.bootstrapTable("load", my_array);
+});
+        </script>
     </body>
 </html>
