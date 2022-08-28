@@ -61,9 +61,9 @@
                                             <!-- Sub Menu Aset Lancar -->
                                             <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                                                 <nav class="sb-sidenav-menu-nested nav">
-                                                    <a class="nav-link" href="aset_lancar\master\master.php">Data Master</a>
-                                                    <a class="nav-link" href="aset_lancar\masuk_lancar\masuk_lancar.php">Barang Masuk</a>
-                                                    <a class="nav-link" href="aset_lancar\keluar_lancar\keluar_lancar.php">Barang Keluar</a>
+                                                    <a class="nav-link" href="master.php">Data Master</a>
+                                                    <a class="nav-link" href="masuk_lancar.php">Barang Masuk</a>
+                                                    <a class="nav-link" href="keluar_lancar.php">Barang Keluar</a>
                                                 </nav>
                                             </div>
 
@@ -154,7 +154,7 @@
                                 <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#tambahbarang">
                                     Input Barang
                                 </button>
-                                <a href="aset_lancar\master\export_lancar_master.php" class="btn btn-info" target="_blank">Export Laporan</a>
+                                <a href="export_lancar_master.php" class="btn btn-info" target="_blank">Export Laporan</a>
                                 <!-- The Modal Popup Tambah Barang-->
                                 <div class="modal fade" id="tambahbarang">
                                     <div class="modal-dialog">

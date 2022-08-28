@@ -60,9 +60,9 @@
                                             <!-- Sub Menu Aset Lancar -->
                                             <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                                                 <nav class="sb-sidenav-menu-nested nav">
-                                                    <a class="nav-link" href="aset_lancar\master\master.php">Data Master</a>
-                                                    <a class="nav-link" href="aset_lancar\masuk_lancar\masuk_lancar.php">Barang Masuk</a>
-                                                    <a class="nav-link" href="aset_lancar\keluar_lancar\keluar_lancar.php">Barang Keluar</a>
+                                                    <a class="nav-link" href="master.php">Data Master</a>
+                                                    <a class="nav-link" href="masuk_lancar.php">Barang Masuk</a>
+                                                    <a class="nav-link" href="keluar_lancar.php">Barang Keluar</a>
                                                 </nav>
                                             </div>
 
@@ -125,7 +125,7 @@
             <div id="layoutSidenav_content">
                 <main>
                     <div class="container-fluid px-4">
-                        <h1 class="mt-4">Data Master</h1>
+                        <h1 class="mt-4">Kategori & Satuan</h1>
                         <ol class="breadcrumb mb-4">
                             <li class="breadcrumb-item active">SARANA & PRASARANA SMANILA</li>
                         </ol>                        
