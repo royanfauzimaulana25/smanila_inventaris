@@ -392,58 +392,54 @@ if(isset($_POST['delete_satuan'])){
 
     // Tambah admin
 
-    // if(isset($_POST['tambahadmin'])){ 
-    //     $email = $_POST['email'];
-    //     $password = $_POST['password'];
+if(isset($_POST['tambahadmin'])){ 
+    $email = $_POST['email'];
+    $password = $_POST['password'];
+    $role = $_POST['role'];
 
-    //     $adminbaru = mysqli_query($conn,"insert into login (email, password) values ('$email','$password')"); 
+    $adminbaru = mysqli_query($conn,"insert into login (email, password,role) values ('$email','$password','$role')"); 
 
-    //     if($adminbaru){
-    //         header('location:admin.php'); 
-
-    //     }else{
-
-        
-    //     header('location:admin.php'); 
-
-    // }
-    // }
+    if($adminbaru){
+        header('location:admin.php'); 
+    }else{
+    header('location:admin.php'); 
+    }
+}
 
 // update admin 
 
-//     if(isset($_POST['updateadmin'])){ 
-//         $emailbaru = $_POST['emailbaru'];
-//         $passwordbaru = $_POST['passwordbaru'];
-//         $id = $_POST['id'];
+if(isset($_POST['updateadmin'])){ 
+    $email = $_POST['email'];
+    $password = $_POST['password'];
+    $role = $_POST['role'];
+    $id = $_POST['id'];
 
-//         $adminupdate = mysqli_query($conn,"update login set email='$emailbaru', password='$passwordbaru' where id='$id'"); 
-           
-//         if($adminupdate){
-//             header('location:admin.php'); 
+    $adminupdate = mysqli_query($conn,"update login set email='$email', password='$password', role='$role' where id='$id'"); 
+        
+    if($adminupdate){
+        header('location:admin.php'); 
 
-//         } else {
-//              header('location:admin.php'); 
-
-//     }
-
-// }
+    } else {
+            header('location:admin.php'); 
+    }
+}
 
 
 // hapus admin 
 
-//  if(isset($_POST['deleteadmin'])){ 
-//     $id = $_POST['id'];
+ if(isset($_POST['deleteadmin'])){ 
+    $id = $_POST['id'];
 
-//     $admindelete = mysqli_query($conn,"delete from login where id='$id'"); 
+    $admindelete = mysqli_query($conn,"delete from login where id='$id'"); 
        
-//     if($admindelete){
-//         header('location:admin.php'); 
+    if($admindelete){
+        header('location:admin.php'); 
 
-//     } else {
-//          header('location:admin.php'); 
+    } else {
+         header('location:admin.php'); 
 
-// }
-//  }
+}
+ }
 
 
 // ---------------------|| Kelola Login ||---------------------------------

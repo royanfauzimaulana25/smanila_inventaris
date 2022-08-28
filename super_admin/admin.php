@@ -3,7 +3,7 @@
 require '../function.php';
 session_start();
 if (!isset($_SESSION['email'])) {
-    header("Location: login.php");
+    header("Location: ../login.php");
 }
 ?>
 
@@ -112,7 +112,7 @@ if (!isset($_SESSION['email'])) {
                                         </a>
 
                                         <!-- Menu Logout -->
-                                        <a class="nav-link" href="logout.php">
+                                        <a class="nav-link" href="../logout.php">
                                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-box-arrow-left" viewBox="0 0 16 16">
                                                 <path fill-rule="evenodd" d="M6 12.5a.5.5 0 0 0 .5.5h8a.5.5 0 0 0 .5-.5v-9a.5.5 0 0 0-.5-.5h-8a.5.5 0 0 0-.5.5v2a.5.5 0 0 1-1 0v-2A1.5 1.5 0 0 1 6.5 2h8A1.5 1.5 0 0 1 16 3.5v9a1.5 1.5 0 0 1-1.5 1.5h-8A1.5 1.5 0 0 1 5 12.5v-2a.5.5 0 0 1 1 0v2z"/>
                                                 <path fill-rule="evenodd" d="M.146 8.354a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L1.707 7.5H10.5a.5.5 0 0 1 0 1H1.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3z"/>
@@ -158,15 +158,20 @@ if (!isset($_SESSION['email'])) {
                                                 <form method="post">
                                                     <div class="modal-body">
 
-                                                    <input type="email" name="email" placeholder="Masukan Email" class="form-control" require>
+                                                        <input type="email" name="email" placeholder="Masukan Email" class="form-control" require>
                                                         <br>
                                                         <input type="password" name="password" placeholder=" Masukan Password" class="form-control" require>
-                                                        
+                                                        <br>
+                                                        <select name = "role" class="form-control" id="role" >
+                                                            <option value=''> Pilih Role </option>
+                                                            <option value="super"> Super </option>
+                                                            <option value="admin"> Admin </option>
+                                                        </select>
                                                         <br>
                                                         <button type="submit" class="btn btn-primary" name="tambahadmin">Submit</button>
                             
                                                 
-                                                </div>
+                                                    </div>
 
                                                 </div>
                                             </div>
@@ -180,17 +185,10 @@ if (!isset($_SESSION['email'])) {
                                         <th>No</th>
                                         <th>Email</th>
                                         <th>Password</th>
+                                        <th>role</th>
                                         <th>Aksi</th>
                                         </tr>
                                     </thead>
-                                    <tfoot>
-                                        <tr>
-                                        <th>No</th>
-                                        <th>Email</th>
-                                        <th>Password</th>
-                                        <th>Aksi</th>
-                                        </tr>
-                                    </tfoot>
                                     <tbody>
                                     
                                     <?php
@@ -200,23 +198,24 @@ if (!isset($_SESSION['email'])) {
                                          
                                         $email = $data['email'];
                                         $id = $data ['id']; 
-                                        $password = $data['password']
+                                        $password = $data['password'];
+                                        $role = $data['role'];
                                        
                                     ?>
                                         <tr>
                                             <td><?=$i++;?></td>
                                             <td><?=$email;?></td>
-                                            <td><?=$password;?><td>
+                                            <td><?=$password;?></td>
+                                            <td><?=$role;?></td>
+                                            <td>    
+                                                <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#edit<?=$id;?>">
+                                                    Edit
+                                                </button>
                                             
-                                            <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#edit<?=$id;?>">
-                                                Edit
-                                            </button>
-                                           
-                                            <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#delete<?=$id;?>">
-                                                Hapus
-                                            </button>
-                                                
-                                        </td>
+                                                <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#delete<?=$id;?>">
+                                                    Hapus
+                                                </button>                                                
+                                            </td>
                                         </tr>
 
                                                 <!-- Edit Modal -->
@@ -233,12 +232,17 @@ if (!isset($_SESSION['email'])) {
                                             <!-- Modal body -->
                                             <form method="post">
                                             <div class="modal-body">
-                                                <input type="email" name="emailbaru" value="<?=$email;?>" class="form-control" require >
+                                                <input type="email" name="email" value="<?=$email;?>" class="form-control" require >
                                                 <br>
-                                                <input type="password" name="passwordbaru" placeholder="Password" value="<?=$password;?>"class="form-control" require>
+                                                <input type="password" name="password" placeholder="Password" value="<?=$password;?>"class="form-control" require>                                                
                                                 <br>
+                                                <select name = "role" class="form-control" id="role" >
+                                                    <option value=''> Pilih Role </option>
+                                                    <option value="super"> Super </option>
+                                                    <option value="admin"> Admin </option>
+                                                </select>
                                                 <input type="hidden" name="id" value="<?=$id;?>">
-                                                
+                                                <br>
                                                 <button type="submit" class="btn btn-primary" name="updateadmin">Submit</button>
                                             </div>
                                             </form>
