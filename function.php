@@ -19,11 +19,11 @@ if(isset($_POST['tambahbarang'])){
     $tambahbarang = mysqli_query($conn,"INSERT INTO barang VALUES ('$kodebarang', '$namabarang', '$jumlah', '$satuan','$kategori', '$jenis_aset')");
     
     if($tambahbarang){ 
-        header('location:master.php'); 
+        header('location:aset_lancar\master\master.php.php'); 
         echo 'Succes';
     } else{ 
         echo 'gagal';
-        header('location:master.php'); 
+        header('location:aset_lancar\master\master.php.php'); 
     }
 }
 
