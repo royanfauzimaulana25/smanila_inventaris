@@ -1,5 +1,5 @@
 <?php
-require 'function.php';
+require '../function.php';
 session_start();
 if (!isset($_SESSION['email'])) {
     header("Location: login.php");
@@ -16,7 +16,7 @@ if (!isset($_SESSION['email'])) {
         <meta name="author" content="" />
         <title>Aset Lancar - Barang Masuk</title>
         <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" />
-        <link href="css/styles.css" rel="stylesheet" />
+        <link href="../css/styles.css" rel="stylesheet" />
         <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
     </head>
     <body class="sb-nav-fixed">

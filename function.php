@@ -19,11 +19,11 @@ if(isset($_POST['tambahbarang'])){
     $tambahbarang = mysqli_query($conn,"INSERT INTO barang VALUES ('$kodebarang', '$namabarang', '$jumlah', '$satuan','$kategori', '$jenis_aset')");
     
     if($tambahbarang){ 
-        header('location:aset_lancar\master\master.php.php'); 
+        header('location:\smanila_inventaris\super_admin\master.php'); 
         echo 'Succes';
     } else{ 
         echo 'gagal';
-        header('location:aset_lancar\master\master.php.php'); 
+        header('location:\smanila_inventaris\super_admin\master.php'); 
     }
 }
 
@@ -46,10 +46,10 @@ if(isset($_POST['update'])){
                     WHERE kd_barang ='$kodebarang'"); 
                     
     if($update){ 
-        header('location:master.php'); 
+        header('location:\smanila_inventaris\super_admin\master.php'); 
     } else{ 
         echo 'gagal';
-        header('location:master.php'); 
+        header('location:\smanila_inventaris\super_admin\master.php'); 
     }
 }
 
@@ -60,10 +60,10 @@ if(isset($_POST['delete'])){
 
     $hapus =mysqli_query($conn, "DELETE FROM barang where kd_barang='$kodebarang'"); 
     if($update){ 
-        header('location:master.php'); 
+        header('location:\smanila_inventaris\super_admin\master.php'); 
     } else{ 
         echo 'gagal';
-        header('location:master.php'); 
+        header('location:\smanila_inventaris\super_admin\master.php'); 
 
     }
 } 
@@ -91,11 +91,11 @@ if(isset($_POST['masuk_lancar'])){
 
     // Redirect After Submit
     if($tambahbarangmasuk){ 
-        header('location:masuk_lancar.php'); 
+        header('location:\smanila_inventaris\super_admin\masuk_lancar.php'); 
         echo 'Succes';
     } else{ 
         echo 'gagal';
-        header('location:masuk_lancar.php'); 
+        header('location:\smanila_inventaris\super_admin\masuk_lancar.php'); 
     }
 }
 
@@ -143,10 +143,10 @@ if(isset($_POST['update_masuk'])){
     
     // Redirect After Submit
     if($update){ 
-        header('location:masuk_lancar.php'); 
+        header('location:\smanila_inventaris\super_admin\masuk_lancar.php'); 
     } else{ 
         echo 'gagal';
-        header('location:masuk_lancar.php'); 
+        header('location:\smanila_inventaris\super_admin\masuk_lancar.php'); 
     }
 }
 
@@ -179,10 +179,10 @@ if(isset($_POST['delete_masuk'])){
 
     // Redirect After Submit
     if($update){ 
-        header('location:masuk_lancar.php'); 
+        header('location:\smanila_inventaris\super_admin\masuk_lancar.php'); 
     } else{ 
         echo 'gagal';
-        header('location:masuk_lancar.php'); 
+        header('location:\smanila_inventaris\super_admin\masuk_lancar.php'); 
     };
 
 } 
@@ -208,7 +208,7 @@ if(isset($_POST['keluar_lancar'])){
         echo '
             <script>
                 alert("Stok Barang yang anda pilih tidak cukup")
-                window.location.href="keluar_lancar.php";  
+                window.location.href="\smanila_inventaris\super_admin\keluar_lancar.php";  
             </script>
         ';
     } else {
@@ -226,11 +226,11 @@ if(isset($_POST['keluar_lancar'])){
                 ('$tanggalkeluar', '$kdbarangkeluar', '$jumlahkeluar', '$keterangan', '$penerima')");
                 
                 if($tambahbarangkeluar){ 
-                    header('location:keluar_lancar.php'); 
+                    header('location:\smanila_inventaris\super_admin\keluar_lancar.php'); 
                     echo 'Succes';
                 } else{ 
                     echo 'gagal';
-                    header('location:keluar_lancar.php'); 
+                    header('location:\smanila_inventaris\super_admin\keluar_lancar.php'); 
                 }
     }                        
     
@@ -313,10 +313,10 @@ if(isset($_POST['delete_keluar'])){
     $hapus =mysqli_query($conn, "DELETE FROM pengeluaran where id_keluar = '$idkeluar'"); 
 
     if($hapus){ 
-        header('location:keluar_lancar.php'); 
+        header('location:\smanila_inventaris\super_admin\keluar_lancar.php'); 
     } else{ 
         echo 'gagal';
-        header('location:keluar_lancar.php'); 
+        header('location:\smanila_inventaris\super_admin\keluar_lancar.php'); 
 
     }
 }    
@@ -332,11 +332,11 @@ if(isset($_POST['tambahkategori'])){
     $tambahkategori = mysqli_query($conn,"insert into kategori (kategori) values ('$kategori')");
     
     if($tambahkategori){ 
-        header('location:kategori.php'); 
+        header('location:\smanila_inventaris\super_admin\kategori.php'); 
         echo 'Succes';
     } else{ 
         echo 'gagal';
-        header('location:kategori.php'); 
+        header('location:\smanila_inventaris\super_admin\kategori.php'); 
     }
 }
 
@@ -347,10 +347,10 @@ if(isset($_POST['delete_kategori'])){
     $hapus_kategori =mysqli_query($conn, "DELETE FROM kategori where kd_kategori = '$kdkategori'"); 
 
     if($hapus_kategori){ 
-        header('location:kategori.php'); 
+        header('location:\smanila_inventaris\super_admin\kategori.php'); 
     } else{ 
         echo 'gagal';
-        header('location:kategori.php'); 
+        header('location:\smanila_inventaris\super_admin\kategori.php'); 
 
     }
 }   
@@ -365,11 +365,11 @@ if(isset($_POST['tambahsatuan'])){
     $tambahkategori = mysqli_query($conn,"insert into satuan (satuan) values ('$satuan')");
     
     if($tambahsatuan){ 
-        header('location:satuan.php'); 
+        header('location:\smanila_inventaris\super_admin\satuan.php'); 
         echo 'Succes';
     } else{ 
         echo 'gagal';
-        header('location:satuan.php'); 
+        header('location:\smanila_inventaris\super_admin\satuan.php'); 
     }
 }
 
@@ -380,10 +380,10 @@ if(isset($_POST['delete_satuan'])){
     $hapus_satuan =mysqli_query($conn, "DELETE FROM satuan where kd_satuan = '$kdsatuan'"); 
 
     if($hapus_satuan){ 
-        header('location:satuan.php'); 
+        header('location:\smanila_inventaris\super_admin\satuan.php'); 
     } else{ 
         echo 'gagal';
-        header('location:satuan.php'); 
+        header('location:\smanila_inventaris\super_admin\satuan.php'); 
 
     }
 }  
@@ -448,29 +448,29 @@ if(isset($_POST['delete_satuan'])){
 
 // ---------------------|| Kelola Login ||---------------------------------
 
-if(isset($_POST['login'])){ 
-    $email = $_POST['email'];
-    $password = $_POST['password']; 
+// if(isset($_POST['login'])){ 
+//     $email = $_POST['email'];
+//     $password = $_POST['password']; 
 
-    $cekdatabase = mysqli_query($conn, "SELECT * FROM login where email='$email' and password='$password'"); 
+//     $cekdatabase = mysqli_query($conn, "SELECT * FROM login where email='$email' and password='$password'"); 
 
-    $hitung = mysqli_num_rows($cekdatabase); 
+//     $hitung = mysqli_num_rows($cekdatabase); 
 
-    if($hitung>0){ 
-       $_SESSION['log'] = 'True'; 
-       header('location:index.php'); 
+//     if($hitung>0){ 
+//        $_SESSION['log'] = 'True'; 
+//        header('location:\smanila_inventaris\super_admin\index.php'); 
        
-    } else {
+//     } else {
         
-        header('location:login.php'); 
-    };
-};
+//         header('location:\smanila_inventaris\super_admin\login.php'); 
+//     };
+// };
 
-    if(!isset($_SESSION['log'])){
+    // if(!isset($_SESSION['log'])){
 
-    } else { 
-        header('location:login.php'); 
-    }
+    // } else { 
+    //     header('location:\smanila_inventaris\super_admin\login.php'); 
+    // }
 
 
 ?>
