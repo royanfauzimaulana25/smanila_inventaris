@@ -134,7 +134,7 @@ session_start();
               <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#myModal">
                                 Keluarkan Barang
               </button>
-              <a href="export.php" class="btn btn-info" target="_blank">Export Laporan</a>
+              <a href="export_lancar_keluar.php" class="btn btn-info" target="_blank">Export Laporan</a>
                 <div class="row mt-2">
                     <div class="col">
                         <form method="POST" class="form-inline">
