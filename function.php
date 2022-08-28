@@ -439,34 +439,7 @@ if(isset($_POST['updateadmin'])){
          header('location:admin.php'); 
 
 }
- }
-
-
-// ---------------------|| Kelola Login ||---------------------------------
-
-// if(isset($_POST['login'])){ 
-//     $email = $_POST['email'];
-//     $password = $_POST['password']; 
-
-//     $cekdatabase = mysqli_query($conn, "SELECT * FROM login where email='$email' and password='$password'"); 
-
-//     $hitung = mysqli_num_rows($cekdatabase); 
-
-//     if($hitung>0){ 
-//        $_SESSION['log'] = 'True'; 
-//        header('location:\smanila_inventaris\super_admin\index.php'); 
-       
-//     } else {
-        
-//         header('location:\smanila_inventaris\super_admin\login.php'); 
-//     };
-// };
-
-    // if(!isset($_SESSION['log'])){
-
-    // } else { 
-    //     header('location:\smanila_inventaris\super_admin\login.php'); 
-    // }
+ };
 
 
 ?>
