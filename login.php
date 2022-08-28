@@ -32,8 +32,8 @@ error_reporting(0);
 session_start();
  
 if (isset($_SESSION['email'])) {
-    header("Location: index.php");
-};
+    header("Location: index.php");    
+} ;
  
 if (isset($_POST['login'])) {
     $email = $_POST['email'];
