@@ -4,7 +4,7 @@ session_start();
 ?>
     <html>
         <head>
-            <title>Export Laporan </title>
+            <title>Export Laporan Pemasukan</title>
             <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
             <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
             <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
@@ -18,7 +18,7 @@ session_start();
         <body>
         <div class="container">
                     <br>
-                    <h2>Laporan Pengeluaran Barang </h2>
+                    <h2>Laporan Pemasukan Barang </h2>
                     <h4>(Inventory)</h4>
                     
                     <div class="row">
@@ -38,11 +38,10 @@ session_start();
                                     <thead>
                                         <tr>
                                             <th>No</th>
-                                            <th>Tanggal Keluar</th>
+                                            <th>Tanggal Masuk</th>
                                             <th>Nama Barang</th>
-                                            <th>Jumlah Keluar</th>
-                                            <th>Keterangan</th>
-                                            <th>Penerima</th>
+                                            <th>Jumlah Masuk</th>
+                                            <th>Kategori</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -54,64 +53,59 @@ session_start();
                                         if ($tgl_mulai != null || $tgl_selesai != null){
                                         $ambildata = mysqli_query($conn,
                                             "SELECT 
-                                            pengeluaran.id_keluar AS id_keluar,
-                                            pengeluaran.tanggal_keluar AS tanggal_keluar,
+                                            pemasukan.id_masuk AS id_masuk,
+                                            pemasukan.tanggal_masuk AS tanggal_masuk,
                                             barang.nama_barang AS nama_barang,
-                                            pengeluaran.jumlah_keluar AS jumlah_keluar,
-                                            pengeluaran.keterangan AS keterangan,
-                                            pengeluaran.penerima AS penerima
+                                            pemasukan.jumlah_masuk AS jumlah_masuk,
+                                            kategori.`kategori` AS kategori
                                         FROM 
-                                            pengeluaran, barang
+                                            pemasukan, barang, kategori
                                         WHERE 
-                                        pengeluaran.`kd_barang` = barang.`kd_barang` 
-                                        AND tanggal_keluar BETWEEN '$tgl_mulai' AND DATE_ADD('$tgl_selesai', interval 1 day)
+                                        barang.`kd_barang` = pemasukan.`kd_barang` AND kategori.`kd_kategori` = barang.`kd_kategori` 
+                                        AND tanggal_masuk BETWEEN '$tgl_mulai' AND DATE_ADD('$tgl_selesai', interval 1 day)
                                             ");
                                         } else {
                                             $ambildata = mysqli_query($conn,
                                             "SELECT 
-                                            pengeluaran.id_keluar AS id_keluar,
-                                            pengeluaran.tanggal_keluar AS tanggal_keluar,
+                                            pemasukan.id_masuk AS id_masuk,
+                                            pemasukan.tanggal_masuk AS tanggal_masuk,
                                             barang.nama_barang AS nama_barang,
-                                            pengeluaran.jumlah_keluar AS jumlah_keluar,
-                                            pengeluaran.keterangan AS keterangan,
-                                            pengeluaran.penerima AS penerima
+                                            pemasukan.jumlah_masuk AS jumlah_masuk,
+                                            kategori.`kategori` AS kategori
                                         FROM 
-                                            pengeluaran, barang
+                                            pemasukan, barang, kategori
                                         WHERE 
-                                        pengeluaran.`kd_barang` = barang.`kd_barang`
+                                        barang.`kd_barang` = pemasukan.`kd_barang` AND kategori.`kd_kategori` = barang.`kd_kategori`
                                             "); 
                                         }
                                     } else {
                                         $ambildata = mysqli_query($conn,
                                             "SELECT 
-                                            pengeluaran.id_keluar AS id_keluar,
-                                            pengeluaran.tanggal_keluar AS tanggal_keluar,
+                                            pemasukan.id_masuk AS id_masuk,
+                                            pemasukan.tanggal_masuk AS tanggal_masuk,
                                             barang.nama_barang AS nama_barang,
-                                            pengeluaran.jumlah_keluar AS jumlah_keluar,
-                                            pengeluaran.keterangan AS keterangan,
-                                            pengeluaran.penerima AS penerima
+                                            pemasukan.jumlah_masuk AS jumlah_masuk,
+                                            kategori.`kategori` AS kategori
                                         FROM 
-                                            pengeluaran, barang
+                                            pemasukan, barang, kategori
                                         WHERE 
-                                        pengeluaran.`kd_barang` = barang.`kd_barang`
+                                        barang.`kd_barang` = pemasukan.`kd_barang` AND kategori.`kd_kategori` = barang.`kd_kategori`
                                             "); 
                                     };
                                     $i = 1;
-                                    while($data=mysqli_fetch_array($ambildata)){ 
-                                        $tanggalkeluar = $data['tanggal_keluar']; 
-                                        $namabarang = $data ['nama_barang']; 
-                                        $jumlahkeluar = $data['jumlah_keluar'];
-                                        $keterangan = $data['keterangan']; 
-                                        $penerima = $data['penerima']; 
+                                            while($data=mysqli_fetch_array($ambildata)){ 
+                                                $idmasuk = $data['id_masuk'];
+                                                $tanggal = $data['tanggal_masuk']; 
+                                                $namabarang = $data ['nama_barang']; 
+                                                $jumlahmasuk = $data['jumlah_masuk']; 
+                                                $kategori = $data['kategori']; 
                                         ?>
-
                                         <tr>
                                             <td><?=$i++;?></td>
-                                            <td><?php echo $tanggalkeluar;?></td>
-                                            <td><?php echo$namabarang;?></td>
-                                            <td><?php echo$jumlahkeluar;?></td>
-                                            <td><?php echo$keterangan;?></td>
-                                            <td><?php echo$penerima;?></td>
+                                            <td><?=$tanggal;?></td>
+                                            <td><?=$namabarang;?></td>
+                                            <td><?=$jumlahmasuk;?></td>
+                                            <td><?=$kategori;?></td>
                                         </tr>
                                         <?php
                                     };

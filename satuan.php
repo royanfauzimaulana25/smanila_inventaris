@@ -125,32 +125,32 @@
             <div id="layoutSidenav_content">
                 <main>
                     <div class="container-fluid px-4">
-                        <h1 class="mt-4">Kategori & Satuan</h1>
+                        <h1 class="mt-4">Satuan</h1>
                         <ol class="breadcrumb mb-4">
                             <li class="breadcrumb-item active">SARANA & PRASARANA SMANILA</li>
                         </ol>                        
-                        <!-- column Tambah Kategori -->
+                        <!-- column Tambah Satuan -->
                         <div class="card mb-4">
                             <div class="card-header">
-                                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#tambahkategori">Tambah Kategori</button>
+                                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#tambahsatuan">Tambah Satuan</button>
                                 
                                 
                                 <!-- The Modal Popup Tambah Kategori-->
-                                <div class="modal fade" id="tambahkategori">
+                                <div class="modal fade" id="tambahsatuan">
                                     <div class="modal-dialog">
                                         <div class="modal-content">
 
                                             <!-- Modal Header -->
                                             <div class="modal-header">
-                                                <h4 class="modal-title">Tambah Kategori</h4>
+                                                <h4 class="modal-title">Tambah satuan</h4>
                                                 <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                                             </div>
 
                                             <!-- Modal body -->
                                             <form method="post">
                                                 <div class="modal-body">
-                                                    <input type="text" name="kategori" placeholder="Kategori" class="form-control" require>                                                <br>
-                                                    <button type="submit" class="btn btn-primary" name="tambahkategori">Submit</button>
+                                                    <input type="text" name="satuan" placeholder="satuan" class="form-control" require>                                                <br>
+                                                    <button type="submit" class="btn btn-primary" name="tambahsatuan">Submit</button>
                                                 </div>
                                             </form>                                                
                                         </div>
@@ -165,47 +165,47 @@
                                 <thead>
                                     <tr>
                                         <th>No</th>
-                                        <th>Kategori</th>
+                                        <th>Satuan</th>
                                         <th>Aksi</th>
                                     </tr>
                                 </thead>
                                 <tbody>                                    
                                     <?php
                                         $ambildata = mysqli_query($conn,
-                                        "SELECT * FROM kategori"); 
+                                        "SELECT * FROM satuan"); 
                                         $i = 1;
                                         while($data=mysqli_fetch_array($ambildata)){ 
-                                            $kategori = $data['kategori'];
-                                            $kdkategori = $data['kd_kategori']
+                                            $satuan = $data['satuan'];
+                                            $kdsatuan = $data['kd_satuan']
                                     ?>
                                     <tr>
                                         <td><?=$i++;?></td>
-                                        <td><?=$kategori;?></td>
+                                        <td><?=$satuan;?></td>
                                         <td>                                            
                                             <!-- Button Aksi Hapus -->
-                                            <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#delete<?=$kdkategori;?>">
+                                            <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#delete<?=$kdsatuan;?>">
                                                 Hapus
                                             </button>
                                         </td>
                                     </tr>
                                 
                                 <!-- Delete Modal -->
-                                <div class="modal fade" id="delete<?=$kdkategori;?>">
+                                <div class="modal fade" id="delete<?=$kdsatuan;?>">
                                     <div class="modal-dialog">
                                         <div class="modal-content">
                                             
                                             <!-- Delete Modal Header -->
                                             <div class="modal-header">
-                                                <h4 class="modal-title">Hapus Barang ?</h4>
+                                                <h4 class="modal-title">Hapus Satuan ?</h4>
                                                 <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                                             </div>
 
                                             <!-- Delete Modal body -->
                                             <form method="post">
                                                 <div class="modal-body">
-                                                    Apakah anda yakin ingin menghapus <bold> <?=$kategori;?> </bold> ? 
-                                                    <input type="hidden" name="kode_kategori" value="<?=$kdkategori;?>"><br><br>
-                                                    <button type="submit" class="btn btn-danger" name="delete_kategori">Hapus</button>
+                                                    Apakah anda yakin ingin menghapus <bold> <?=$satuan;?> </bold> ? 
+                                                    <input type="hidden" name="kode_satuan" value="<?=$kdsatuan;?>"><br><br>
+                                                    <button type="submit" class="btn btn-danger" name="delete_satuan">Hapus</button>
                                                 </div>
                                             </form>
                                         </div>

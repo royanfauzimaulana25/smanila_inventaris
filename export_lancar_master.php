@@ -4,7 +4,7 @@ session_start();
 ?>
     <html>
         <head>
-            <title>Export Laporan </title>
+            <title>Export Laporan Master Barang</title>
             <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
             <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
             <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
@@ -18,100 +18,61 @@ session_start();
         <body>
         <div class="container">
                     <br>
-                    <h2>Laporan Pengeluaran Barang </h2>
+                    <h2>Laporan Stok Barang </h2>
                     <h4>(Inventory)</h4>
                     
-                    <div class="row">
-                        <div class="col">
-                            <form method="POST" class="form-inline">
-                                <label><strong>From Date</strong></label>
-                                <input type = "date" name="tgl_mulai" class="form-control ml-3 mr-3">
-                                <label><strong>To Date</strong></label>
-                                <input type = "date" name="tgl_selesai" class="form-control ml-3">
-                                <button type="submit" name="filter" class="btn btn-info ml-3">Filter</button>
-                            </form>
-                        </div>
-                    </div>
                     
                     <div class="data-tables datatable-dark">                            
                         <table class="table table-bordered" id="mauexport" width="100%" cellspacing="0">
                                     <thead>
                                         <tr>
-                                            <th>No</th>
-                                            <th>Tanggal Keluar</th>
-                                            <th>Nama Barang</th>
-                                            <th>Jumlah Keluar</th>
-                                            <th>Keterangan</th>
-                                            <th>Penerima</th>
+                                        <th>No</th>
+                                        <th>Kode Barang</th>
+                                        <th>Nama Barang</th>
+                                        <th>Kategori</th>
+                                        <th>Stok</th>
+                                        <th>Satuan</th>
+                                        <!-- <th>Barang Masuk</th>
+                                        <th>Barang Keluar</th> -->
                                         </tr>
                                     </thead>
                                     <tbody>
                                     <?php
-                                    if(isset($_POST['filter'])){
-                                        $tgl_mulai = $_POST['tgl_mulai'];
-                                        $tgl_selesai = $_POST['tgl_selesai'];
-                                        
-                                        if ($tgl_mulai != null || $tgl_selesai != null){
+                                    
                                         $ambildata = mysqli_query($conn,
                                             "SELECT 
-                                            pengeluaran.id_keluar AS id_keluar,
-                                            pengeluaran.tanggal_keluar AS tanggal_keluar,
-                                            barang.nama_barang AS nama_barang,
-                                            pengeluaran.jumlah_keluar AS jumlah_keluar,
-                                            pengeluaran.keterangan AS keterangan,
-                                            pengeluaran.penerima AS penerima
+                                            barang.`kd_barang` as kd_barang,
+                                            barang.`nama_barang` as nama_barang,
+                                            kategori.kategori as kategori,
+                                            barang.`stok` as stok,
+                                            satuan.`satuan` as satuan 
                                         FROM 
-                                            pengeluaran, barang
-                                        WHERE 
-                                        pengeluaran.`kd_barang` = barang.`kd_barang` 
-                                        AND tanggal_keluar BETWEEN '$tgl_mulai' AND DATE_ADD('$tgl_selesai', interval 1 day)
-                                            ");
-                                        } else {
-                                            $ambildata = mysqli_query($conn,
-                                            "SELECT 
-                                            pengeluaran.id_keluar AS id_keluar,
-                                            pengeluaran.tanggal_keluar AS tanggal_keluar,
-                                            barang.nama_barang AS nama_barang,
-                                            pengeluaran.jumlah_keluar AS jumlah_keluar,
-                                            pengeluaran.keterangan AS keterangan,
-                                            pengeluaran.penerima AS penerima
-                                        FROM 
-                                            pengeluaran, barang
-                                        WHERE 
-                                        pengeluaran.`kd_barang` = barang.`kd_barang`
+                                            barang
+                                        INNER JOIN 
+                                            kategori 
+                                        ON 
+                                            barang.kd_kategori = kategori.kd_kategori
+                                        INNER JOIN 
+                                            satuan
+                                        ON
+                                            barang.kd_satuan = satuan.kd_satuan
                                             "); 
-                                        }
-                                    } else {
-                                        $ambildata = mysqli_query($conn,
-                                            "SELECT 
-                                            pengeluaran.id_keluar AS id_keluar,
-                                            pengeluaran.tanggal_keluar AS tanggal_keluar,
-                                            barang.nama_barang AS nama_barang,
-                                            pengeluaran.jumlah_keluar AS jumlah_keluar,
-                                            pengeluaran.keterangan AS keterangan,
-                                            pengeluaran.penerima AS penerima
-                                        FROM 
-                                            pengeluaran, barang
-                                        WHERE 
-                                        pengeluaran.`kd_barang` = barang.`kd_barang`
-                                            "); 
-                                    };
                                     $i = 1;
                                     while($data=mysqli_fetch_array($ambildata)){ 
-                                        $tanggalkeluar = $data['tanggal_keluar']; 
+                                        $kodebarang = $data['kd_barang'];
                                         $namabarang = $data ['nama_barang']; 
-                                        $jumlahkeluar = $data['jumlah_keluar'];
-                                        $keterangan = $data['keterangan']; 
-                                        $penerima = $data['penerima']; 
+                                        $kategori = $data['kategori']; 
+                                        $stok = $data['stok'];
+                                        $satuan = $data['satuan']; 
                                         ?>
 
                                         <tr>
                                             <td><?=$i++;?></td>
-                                            <td><?php echo $tanggalkeluar;?></td>
-                                            <td><?php echo$namabarang;?></td>
-                                            <td><?php echo$jumlahkeluar;?></td>
-                                            <td><?php echo$keterangan;?></td>
-                                            <td><?php echo$penerima;?></td>
+                                            <td><?=$kodebarang;?></td>
+                                            <td><?=$namabarang;?></td>
+                                            <td><?=$kategori;?></td>
+                                            <td><?=$stok;?></td>
+                                            <td><?=$satuan;?></td>
                                         </tr>
                                         <?php
                                     };

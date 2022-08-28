@@ -355,6 +355,39 @@ if(isset($_POST['delete_kategori'])){
     }
 }   
 
+// ------------------- Satuan -------------------------------
+
+// Tambah satuan
+if(isset($_POST['tambahsatuan'])){
+    $kdsatuan = $_POST['kd_satuan'];
+    $satuan = $_POST['satuan'];
+
+    $tambahkategori = mysqli_query($conn,"insert into satuan (satuan) values ('$satuan')");
+    
+    if($tambahsatuan){ 
+        header('location:satuan.php'); 
+        echo 'Succes';
+    } else{ 
+        echo 'gagal';
+        header('location:satuan.php'); 
+    }
+}
+
+// Hapus Satuan
+
+if(isset($_POST['delete_satuan'])){ 
+    $kdsatuan   = $_POST['kode_satuan']; 
+    $hapus_satuan =mysqli_query($conn, "DELETE FROM satuan where kd_satuan = '$kdsatuan'"); 
+
+    if($hapus_satuan){ 
+        header('location:satuan.php'); 
+    } else{ 
+        echo 'gagal';
+        header('location:satuan.php'); 
+
+    }
+}  
+
 // ---------------------|| Kelola Admin [ Management User ] ||---------------------------------
 
     // Tambah admin
