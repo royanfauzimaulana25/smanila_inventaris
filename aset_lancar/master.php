@@ -154,7 +154,7 @@
                                 <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#tambahbarang">
                                     Input Barang
                                 </button>
-                                <a href="export.php" class="btn btn-info" target="_blank">Export Laporan</a>
+                                <a href="export_lancar_master.php" class="btn btn-info" target="_blank">Export Laporan</a>
                                 <!-- The Modal Popup Tambah Barang-->
                                 <div class="modal fade" id="tambahbarang">
                                     <div class="modal-dialog">
