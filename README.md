@@ -1,0 +1,1 @@
+# smanila_inventaris
