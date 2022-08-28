@@ -1,31 +1,55 @@
 <?php
+// require 'cek.php';
+// require 'function.php';
 
-require 'function.php';
+// if(isset($_POST['login'])){ 
+//     $email = $_POST['email'];
+//     $password = $_POST['password']; 
 
-if(isset($_POST['login'])){ 
-    $email = $_POST['email'];
-    $password = $_POST['password']; 
+//     $cekdatabase = mysqli_query($conn, "SELECT * FROM login where email='$email' and password='$password'"); 
 
-    $cekdatabase = mysqli_query($conn, "SELECT * FROM login where email='$email' and password='$password'"); 
+//     $hitung = mysqli_num_rows($cekdatabase); 
 
-    $hitung = mysqli_num_rows($cekdatabase); 
-
-    if($hitung>0){ 
-       $_SESSION['log'] = 'True'; 
-       header('location:index.php'); 
+//     if($hitung>0){ 
+//        $_SESSION['log'] = 'True'; 
+//        header('location:index.php'); 
        
-    } else {
+//     } else {
         
-        header('location:login.php'); 
-    };
+//         header('location:login.php'); 
+//     };
+// };
+
+//     if(!isset($_SESSION['log'])){
+
+//     } else { 
+//         header('location:login.php'); 
+//     }
+
+include 'function.php';
+ 
+error_reporting(0); 
+session_start();
+ 
+if (isset($_SESSION['email'])) {
+    header("Location: master.php");
 };
-
-    if(!isset($_SESSION['log'])){
-
-    } else { 
-        header('location:login.php'); 
-    }
-    ?>
+ 
+if (isset($_POST['login'])) {
+    $email = $_POST['email'];
+    $password = $_POST['password'];
+ 
+    $sql = "SELECT * FROM login WHERE email='$email' AND password='$password'";
+    $result = mysqli_query($conn, $sql);
+    if ($result->num_rows > 0) {
+        $row = mysqli_fetch_assoc($result);
+        $_SESSION['email'] = $row['email'];
+        header("Location: master.php");
+    } else {
+        echo "<script>alert('Email atau password Anda salah. Silahkan coba lagi!')</script>";
+    };
+}
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -49,21 +73,21 @@ if(isset($_POST['login'])){
                                 <div class="card shadow-lg border-0 rounded-lg mt-5">
                                     <div class="card-header"><h3 class="text-center font-weight-light my-4">Login</h3></div>
                                     <div class="card-body">
+                                        <!-- Form Login  -->
                                         <form method="post">
                                             <div class="form-group">
-                                            <label for="inputEmail">Email address</label>
+                                                <label for="inputEmail">Email address</label>
                                                 <input class="form-control" name="email"id="inputEmail" type="email" placeholder="name@example.com" />
-                                               
                                             </div>
                                             <div class="form-group">
-                                            <label for="inputPassword">Password</label>
+                                                <label for="inputPassword">Password</label>
                                                 <input class="form-control" name="password"id="inputPassword" type="password" placeholder="Password" />
-                                               
                                             </div>
                                             <div class="d-flex align-items-center justify-content-between mt-4 mb-0">
                                                 <button class="btn btn-primary" name="login">Login</button>
                                             </div>
                                         </form>
+
                                     </div>
 
                                 </div>
@@ -74,7 +98,7 @@ if(isset($_POST['login'])){
             </div>
 
         </div>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
-        <script src="js/scripts.js"></script>
+        <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+        <script src="js/scripts.js"></script> -->
     </body>
 </html>

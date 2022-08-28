@@ -1,5 +1,4 @@
 <?php
-session_start(); 
 $conn = mysqli_connect("localhost","root","","inventaris_smanila"); 
 
 
@@ -412,5 +411,33 @@ if(isset($_POST['delete_kategori'])){
 
 // }
 //  }
+
+
+// ---------------------|| Kelola Login ||---------------------------------
+
+if(isset($_POST['login'])){ 
+    $email = $_POST['email'];
+    $password = $_POST['password']; 
+
+    $cekdatabase = mysqli_query($conn, "SELECT * FROM login where email='$email' and password='$password'"); 
+
+    $hitung = mysqli_num_rows($cekdatabase); 
+
+    if($hitung>0){ 
+       $_SESSION['log'] = 'True'; 
+       header('location:index.php'); 
+       
+    } else {
+        
+        header('location:login.php'); 
+    };
+};
+
+    if(!isset($_SESSION['log'])){
+
+    } else { 
+        header('location:login.php'); 
+    }
+
 
 ?>

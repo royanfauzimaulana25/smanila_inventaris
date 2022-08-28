@@ -1,6 +1,7 @@
 <?php
     require 'function.php';
-    require 'cek.php';
+    session_start();
+    // require 'cek.php';
 ?>
 
 <!DOCTYPE html>
