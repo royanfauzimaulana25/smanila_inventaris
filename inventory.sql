@@ -302,3 +302,29 @@ ON
 	brg.`kd_kategori` = kategori.`kd_kategori`
 	
  -- ----------------------------------------- -- 	
+SELECT 
+                    pengeluaran.id_keluar AS id_keluar,
+                    pengeluaran.tanggal_keluar AS tanggal_keluar,
+                    barang.nama_barang AS nama_barang,
+                    pengeluaran.jumlah_keluar AS jumlah_keluar,
+                    pengeluaran.keterangan AS keterangan,
+                    pengeluaran.penerima AS penerima
+                FROM 
+                    pengeluaran
+                INNER JOIN 
+                    barang 
+                    ON
+                    pengeluaran.kd_barang = barang.kd_barang
+                    
+                    
+SELECT 
+                    pengeluaran.id_keluar AS id_keluar,
+                    pengeluaran.tanggal_keluar AS tanggal_keluar,
+                    barang.nama_barang AS nama_barang,
+                    pengeluaran.jumlah_keluar AS jumlah_keluar,
+                    pengeluaran.keterangan AS keterangan,
+                    pengeluaran.penerima AS penerima
+                FROM 
+                    pengeluaran, barang, kategori
+                WHERE 
+	            barang.`kd_barang` = pengeluaran.`kd_barang` AND barang.`kd_kategori` = kategori.`kd_kategori`

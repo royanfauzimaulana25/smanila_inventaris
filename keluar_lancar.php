@@ -129,18 +129,24 @@ session_start();
               <li class="breadcrumb-item active">SARPRAS SMANILA </li>
             </ol>
             <div class="card mb-4">
-              <div class="card-body">
-              
-            
-              </div>
-            </div>
-            <div class="card mb-4">
-              <div class="card-header">
+              <div class="card-header pt-4 pb-4">
                 
               <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#myModal">
                                 Keluarkan Barang
               </button>
               <a href="export.php" class="btn btn-info" target="_blank">Export Laporan</a>
+              <div class="row mt-2">
+                <div class="col">
+                    <form method="POST" class="form-inline">
+                        <label><strong>From Date</strong></label>
+                        <input type = "date" name="tgl_mulai" class="form-control mb-3">
+                        <label><strong>To Date</strong></label>
+                        <input type = "date" name="tgl_selesai" class="form-control mb-3">
+                        <button type="submit" name="filter" class="btn btn-info ml-3">Filter</button>
+                    </form>
+                </div>
+            </div>
+
                             <!-- The Modal -->
                         <div class="modal fade" id="myModal">
                         <div class="modal-dialog">
@@ -209,21 +215,55 @@ session_start();
                   <tbody>
                   
                   <?php
-                  $ambildata = mysqli_query($conn,
-                    "SELECT 
-                    pengeluaran.id_keluar AS id_keluar,
-                    pengeluaran.tanggal_keluar AS tanggal_keluar,
-                    barang.nama_barang AS nama_barang,
-                    pengeluaran.jumlah_keluar AS jumlah_keluar,
-                    pengeluaran.keterangan AS keterangan,
-                    pengeluaran.penerima AS penerima
-                FROM 
-                    pengeluaran
-                INNER JOIN 
-                    barang 
-                    ON
-                    pengeluaran.kd_barang = barang.kd_barang
-                    "); 
+                  if(isset($_POST['filter'])){
+                    $tgl_mulai = $_POST['tgl_mulai'];
+                    $tgl_selesai = $_POST['tgl_selesai'];
+                    
+                    if ($tgl_mulai != null || $tgl_selesai != null){
+                    $ambildata = mysqli_query($conn,
+                        "SELECT 
+                        pengeluaran.id_keluar AS id_keluar,
+                        pengeluaran.tanggal_keluar AS tanggal_keluar,
+                        barang.nama_barang AS nama_barang,
+                        pengeluaran.jumlah_keluar AS jumlah_keluar,
+                        pengeluaran.keterangan AS keterangan,
+                        pengeluaran.penerima AS penerima
+                    FROM 
+                        pengeluaran, barang
+                    WHERE 
+                    pengeluaran.`kd_barang` = barang.`kd_barang` 
+                    AND tanggal_keluar BETWEEN '$tgl_mulai' AND DATE_ADD('$tgl_selesai', interval 1 day)
+                        ");
+                    } else {
+                        $ambildata = mysqli_query($conn,
+                        "SELECT 
+                        pengeluaran.id_keluar AS id_keluar,
+                        pengeluaran.tanggal_keluar AS tanggal_keluar,
+                        barang.nama_barang AS nama_barang,
+                        pengeluaran.jumlah_keluar AS jumlah_keluar,
+                        pengeluaran.keterangan AS keterangan,
+                        pengeluaran.penerima AS penerima
+                    FROM 
+                        pengeluaran, barang
+                    WHERE 
+                    pengeluaran.`kd_barang` = barang.`kd_barang`
+                        "); 
+                    }
+                } else {
+                    $ambildata = mysqli_query($conn,
+                        "SELECT 
+                        pengeluaran.id_keluar AS id_keluar,
+                        pengeluaran.tanggal_keluar AS tanggal_keluar,
+                        barang.nama_barang AS nama_barang,
+                        pengeluaran.jumlah_keluar AS jumlah_keluar,
+                        pengeluaran.keterangan AS keterangan,
+                        pengeluaran.penerima AS penerima
+                    FROM 
+                        pengeluaran, barang
+                    WHERE 
+                    pengeluaran.`kd_barang` = barang.`kd_barang`
+                        "); 
+                };
                     $i = 1;
                     while($data=mysqli_fetch_array($ambildata)){ 
                       $idkeluar = $data['id_keluar'];
@@ -305,5 +345,10 @@ session_start();
     <script src="assets/demo/chart-bar-demo.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" crossorigin="anonymous"></script>
     <script src="js/datatables-simple-demo.js"></script>
+    <script>
+            if (window.history.replaceState ) {
+                window.history.replaceState( null, null, window.location.href );
+                }
+        </script>
   </body>
 </html>
