@@ -30,7 +30,7 @@ include 'function.php';
  
 error_reporting(0); 
 session_start();
- 
+
 if (isset($_SESSION['email'])) {
     if ($_SESSION['role']=='super'){        
         header("Location: super_admin/index.php");
@@ -47,6 +47,7 @@ if (isset($_POST['login'])) {
     $result = mysqli_query($conn, $sql);
     if ($result->num_rows > 0) {
         $row = mysqli_fetch_assoc($result);
+        $_SESSION['log'] = 'True'; 
         $_SESSION['email'] = $row['email'];
         $role = $row['role'];
         if ($role == 'super'){
@@ -58,6 +59,12 @@ if (isset($_POST['login'])) {
         };
     } else {
         echo "<script>alert('Email atau password Anda salah. Silahkan coba lagi!')</script>";
+    };
+
+    if(!isset($_SESSION['log'])){
+
+    } else { 
+        header('location:login.php'); 
     };
 }
 ?>

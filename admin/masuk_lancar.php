@@ -68,16 +68,7 @@ if (!isset($_SESSION['email'])) {
                                                     <a class="nav-link" href="keluar_lancar.php">Barang Keluar</a>
                                                 </nav>
                                             </div>
-                                            <!-- Sub Menu Aset Lancar -->
-                                            <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
-                                                <nav class="sb-sidenav-menu-nested nav">
-                                                    <a class="nav-link" href="master.php">Data Master</a>
-                                                    <a class="nav-link" href="masuk_lancar.php">Barang Masuk</a>
-                                                    <a class="nav-link" href="keluar_lancar.php">Barang Keluar</a>
-                                                </nav>
-                                            </div>
-
-                                        
+                       
                                         <!-- Menu Kategori -->
                                         <a class="nav-link" href="kategori.php">
                                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-gear" viewBox="0 0 16 16">

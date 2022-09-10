@@ -60,12 +60,6 @@ if (!isset($_SESSION['email'])) {
                                             Aset Lancar 
                                             <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                                         </a>
-                                           <!-- Menu Aset Lancar -->
-                                        <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
-                                            <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
-                                            Aset Lancar 
-                                            <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
-                                        </a>
                                             <!-- Sub Menu Aset Lancar -->
                                             <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                                                 <nav class="sb-sidenav-menu-nested nav">
@@ -74,8 +68,6 @@ if (!isset($_SESSION['email'])) {
                                                     <a class="nav-link" href="keluar_lancar.php">Barang Keluar</a>
                                                 </nav>
                                             </div>
-
-                                        
                                         <!-- Menu Kategori -->
                                         <a class="nav-link" href="kategori.php">
                                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-gear" viewBox="0 0 16 16">
