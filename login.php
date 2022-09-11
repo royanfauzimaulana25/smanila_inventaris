@@ -1,72 +1,42 @@
 <?php
-// require 'cek.php';
-// require 'function.php';
+// session_start();
 
-// if(isset($_POST['login'])){ 
-//     $email = $_POST['email'];
-//     $password = $_POST['password']; 
-
-//     $cekdatabase = mysqli_query($conn, "SELECT * FROM login where email='$email' and password='$password'"); 
-
-//     $hitung = mysqli_num_rows($cekdatabase); 
-
-//     if($hitung>0){ 
-//        $_SESSION['log'] = 'True'; 
-//        header('location:index.php'); 
-       
-//     } else {
-        
-//         header('location:login.php'); 
-//     };
+// if ( (isset($_SESSION["login"])) && ($_SESSION["role"] == "admin") ) {
+//     header("Location: admin/index.php");
+// } elseif ( (isset($_SESSION["login"])) && ($_SESSION["role"] == "super") ){
+//     header("Location: super_admin/index.php"); 
 // };
 
-//     if(!isset($_SESSION['log'])){
-
-//     } else { 
-//         header('location:login.php'); 
-//     }
-
-include 'function.php';
+require 'function.php';
  
-error_reporting(0); 
-session_start();
+if( isset($_POST["login"]) ) {
+    $email = $_POST["email"];
+    $password = $_POST["password"];
 
-if (isset($_SESSION['email'])) {
-    if ($_SESSION['role']=='super'){        
-        header("Location: super_admin/index.php");
-    } else {
-        header("Location: admin/index.php");
-    }; 
-} ;
- 
-if (isset($_POST['login'])) {
-    $email = $_POST['email'];
-    $password = $_POST['password'];
- 
-    $sql = "SELECT * FROM login WHERE email='$email' AND password='$password'";
-    $result = mysqli_query($conn, $sql);
-    if ($result->num_rows > 0) {
-        $row = mysqli_fetch_assoc($result);
-        $_SESSION['log'] = 'True'; 
-        $_SESSION['email'] = $row['email'];
-        $role = $row['role'];
-        if ($role == 'super'){
-            $_SESSION['role'] = $row['role'];
-            header("Location: super_admin/index.php");
+    $result = mysqli_query($conn, "SELECT * FROM login WHERE email = '$email' AND password = '$password'");
+     
+    $row = mysqli_fetch_array($result);
+    $role = $row["role"] ;
+    $number_rows =  mysqli_num_rows($result);
+
+    if ( ($number_rows > 0) && ($role == 'super') ) {
+            $_SESSION["login"] = True;
+            $_SESSION["role"] = $role;
+
+            header('location:super_admin');
+            exit;
+
+        } elseif ( ($number_rows > 0) && ($role == 'admin') ) {
+            $_SESSION["login"] = True;
+            $_SESSION["role"] = $role;
+
+            header("Location: admin");
+            exit;
+
         } else {
-            $_SESSION['role'] = $row['role'];
-            header("Location: admin/index.php");
+            echo "<script>alert('Email atau password Anda salah. Silahkan coba lagi!')</script>";
         };
-    } else {
-        echo "<script>alert('Email atau password Anda salah. Silahkan coba lagi!')</script>";
-    };
-
-    if(!isset($_SESSION['log'])){
-
-    } else { 
-        header('location:login.php'); 
-    };
-}
+};
 ?>
 
 <!DOCTYPE html>

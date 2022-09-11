@@ -1,10 +1,18 @@
 <?php
+// session_start();
+
+// if (!isset($_SESSION["login"]))  {
+//     header("Location: ../login.php");
+//     exit;
+
+// } else {
+//     if ($_SESSION["role"] != "super"){
+//         header("Location: index.php");
+//         exit;
+//     };
+// };
 
 require '../function.php';
-session_start();
-if (!isset($_SESSION['email']) && !isset($_SESSION['log']) && !isset($_SESSION['role']) == "admin") {
-    header("Location: ../login.php");
-}
 ?>
 
 
