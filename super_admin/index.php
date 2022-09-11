@@ -1,16 +1,14 @@
 <?php
-// session_start();
+session_start();
 
-// if (!isset($_SESSION["login"]))  {
-//     header("Location: ../login.php");
-//     exit;
+if (!isset($_SESSION["login"])) {
 
-// } else {
-
-//     header("Location: index.php");
-//     exit;
-
-// };
+    header("Location: ../index.php");
+    exit;
+} elseif ($_SESSION["role"] == "admin") {
+    header("Location: ../admin/index.php");
+    exit;
+};
 
 
 require '../function.php';

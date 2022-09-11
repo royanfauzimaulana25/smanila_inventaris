@@ -1,11 +1,14 @@
 <?php
-// session_start();
+session_start();
 
-// if ( (isset($_SESSION["login"])) && ($_SESSION["role"] == "admin") ) {
-//     header("Location: admin/index.php");
-// } elseif ( (isset($_SESSION["login"])) && ($_SESSION["role"] == "super") ){
-//     header("Location: super_admin/index.php"); 
-// };
+if ( (isset($_SESSION["login"])) && ($_SESSION["role"] == "admin") ) {
+    header("Location: admin");
+    exit;
+    
+} elseif ( (isset($_SESSION["login"])) && ($_SESSION["role"] == "super") ){
+    header("Location: super_admin"); 
+    exit;
+};
 
 require 'function.php';
  

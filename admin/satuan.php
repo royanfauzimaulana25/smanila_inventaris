@@ -1,9 +1,15 @@
 <?php
-    require '../function.php';
-    session_start();
-    if (!isset($_SESSION['email'])) {
-        header("Location: login.php");
-    }
+session_start();
+if (!isset($_SESSION["login"])) {
+
+    header("Location: ../index.php");
+    exit;
+} elseif ($_SESSION["role"] == "super") {
+    header("Location: ../super_admin/index.php");
+    exit;
+};
+
+require '../function.php';
 ?>
 
 <!DOCTYPE html>

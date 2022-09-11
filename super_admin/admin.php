@@ -1,10 +1,18 @@
 <?php
 
-require '../function.php';
 session_start();
-if (!isset($_SESSION['email'])) {
-    header("Location: ../login.php");
-}
+
+if (!isset($_SESSION["login"])) {
+
+    header("Location: ../index.php");
+    exit;
+} elseif ($_SESSION["role"] == "admin") {
+    header("Location: ../admin/index.php");
+    exit;
+};
+
+
+require '../function.php';
 ?>
 
 <!DOCTYPE html>
