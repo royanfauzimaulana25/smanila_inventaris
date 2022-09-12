@@ -246,14 +246,14 @@ require '../function.php';
                                         <td><?=$stok;?></td>
                                         <td><?=$satuan;?></td>
                                         <td>
-                                            <!-- Button Aksi Edit -->
-                                            <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#edit<?=$kodebarang;?>">
-                                                Edit
-                                            </button>
-                                            <!-- Button Aksi Hapus -->
-                                            <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#delete<?=$kodebarang;?>">
-                                                Hapus
-                                            </button>
+                                             <!-- Button Aksi Edit -->
+                                             <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#edit<?=$kodebarang;?>">
+                                                    Edit
+                                                </button>
+                                                <!-- Button Aksi Hapus -->
+                                                <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#delete<?=$kodebarang;?>">
+                                                    Hapus
+                                                 </button>
                                         </td>
                                     </tr>
 
