@@ -89,10 +89,10 @@ require '../function.php';
                                           Satuan
                                         </a>
                                         
-                                        <!-- Menu Manajemen User -->
-                                        <a class="nav-link" href="admin.php">
+                                      <!-- Menu Manajemen User -->
+                                      <a class="nav-link" href="admin.php">
                                         <div class="sb-nav-link-icon"><i class="fas fa-user-alt"></i></div>
-                                             Management User
+                                            Management User
                                         </a>
 
                                         <!-- Menu Logout -->

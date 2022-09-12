@@ -119,9 +119,8 @@ require '../function.php';
                                         <!-- Menu Manajemen User -->
                                         <a class="nav-link" href="admin.php">
                                         <div class="sb-nav-link-icon"><i class="fas fa-user-alt"></i></div>
-                                             Management User
+                                            Management User
                                         </a>
-
                                         <!-- Menu Logout -->
                                         <a class="nav-link" href="../logout.php">
                                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-box-arrow-left" viewBox="0 0 16 16">
