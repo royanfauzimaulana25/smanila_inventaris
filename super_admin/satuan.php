@@ -37,14 +37,14 @@ require '../function.php';
             <!-- Navbar Search-->
             <form class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0">
                 <div class="input-group">
-                <input class="form-control" type="text" placeholder="Search for..." aria-label="Search for..." aria-describedby="btnNavbarSearch" />
-                <button class="btn btn-primary" id="btnNavbarSearch" type="button"><i class="fas fa-search"></i></button>
+                <!-- <input class="form-control" type="text" placeholder="Search for..." aria-label="Search for..." aria-describedby="btnNavbarSearch" />
+                <button class="btn btn-primary" id="btnNavbarSearch" type="button"><i class="fas fa-search"></i></button> -->
                 </div>
             </form>
             <!-- Navbar-->
             <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
                 <li class="nav-item dropdown">
-                    <a class="" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
+                    <!-- <a class="" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a> -->
                 </li>
             </ul>
         </nav>
@@ -77,40 +77,14 @@ require '../function.php';
                                                 </nav>
                                             </div>
 
-                                        <!-- Menu Aset Tetap -->
-                                        <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages">
-                                            <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
-                                            Aset Tetap
-                                            <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
-                                        </a>
-                                            <!-- Sub Menu Aset Tetap -->
-                                            <div class="collapse" id="collapsePages" aria-labelledby="headingTwo" data-bs-parent="#sidenavAccordion">
-                                                <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages">
-                                                    <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#pagesCollapseAuth" aria-expanded="false" aria-controls="pagesCollapseAuth">
-                                                        Data Master   
-                                                    </a>
-                                                    <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#pagesCollapseError" aria-expanded="false" aria-controls="pagesCollapseError">
-                                                        Barang Masuk 
-                                                    </a>
-                                                    <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#pagesCollapseError" aria-expanded="false" aria-controls="pagesCollapseError">
-                                                        Peminjaman
-                                                    </a>
-                                                    <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#pagesCollapseError" aria-expanded="false" aria-controls="pagesCollapseError">
-                                                        Barang Rusak 
-                                                    </a>
-                                                    <!-- <div class="collapse" id="pagesCollapseError" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordionPages">
-                                                        <nav class="sb-sidenav-menu-nested nav"></nav>
-                                                    </div> -->
-                                                </nav>
-                                            </div>
-                                        </a>
+                                      
                                        <!-- Menu Kategori -->
                                        <a class="nav-link" href="kategori.php">
                                             <div class="sb-nav-link-icon"><i class="fas fa-bars"></i></div>
                                          Kategori 
                                         </a>
 
-                                        <!-- Menu Kategori -->
+                                        <!-- Menu satuan -->
                                         <a class="nav-link" href="satuan.php">
                                             <div class="sb-nav-link-icon"><i class="fas fa-box"></i></div>
                                           Satuan

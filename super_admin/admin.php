@@ -31,20 +31,20 @@ require '../function.php';
   <body class="sb-nav-fixed">
     <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
       <!-- Navbar Brand-->
-      <a class="navbar-brand ps-3" href="index.php">KELOLA ADMIN SARPRAS SMANILA </a>
+      <a class="navbar-brand ps-3" href="index.php">SARPRAS SMANILA </a>
       <!-- Sidebar Toggle-->
       <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i class="fas fa-bars"></i></button>
       <!-- Navbar Search-->
       <form class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0">
         <div class="input-group">
-          <input class="form-control" type="text" placeholder="Search for..." aria-label="Search for..." aria-describedby="btnNavbarSearch" />
-          <button class="btn btn-primary" id="btnNavbarSearch" type="button"><i class="fas fa-search"></i></button>
+          <!-- <input class="form-control" type="text" placeholder="Search for..." aria-label="Search for..." aria-describedby="btnNavbarSearch" />
+          <button class="btn btn-primary" id="btnNavbarSearch" type="button"><i class="fas fa-search"></i></button> -->
         </div>
       </form>
       <!-- Navbar-->
       <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
         <li class="nav-item dropdown">
-            <a class="" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
+            <!-- <a class="" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a> -->
         </li>
       </ul>
     </nav>
@@ -62,8 +62,8 @@ require '../function.php';
                                             Dashboard
                                         </a>
 
-                                        <!-- Menu Aset Lancar -->
-                                        <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
+                                         <!-- Menu Aset Lancar -->
+                                         <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
                                             <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
                                             Aset Lancar 
                                             <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
@@ -77,33 +77,7 @@ require '../function.php';
                                                 </nav>
                                             </div>
 
-                                        <!-- Menu Aset Tetap -->
-                                        <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages">
-                                            <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
-                                            Aset Tetap
-                                            <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
-                                        </a>
-                                            <!-- Sub Menu Aset Tetap -->
-                                            <div class="collapse" id="collapsePages" aria-labelledby="headingTwo" data-bs-parent="#sidenavAccordion">
-                                                <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages">
-                                                    <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#pagesCollapseAuth" aria-expanded="false" aria-controls="pagesCollapseAuth">
-                                                        Data Master   
-                                                    </a>
-                                                    <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#pagesCollapseError" aria-expanded="false" aria-controls="pagesCollapseError">
-                                                        Barang Masuk 
-                                                    </a>
-                                                    <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#pagesCollapseError" aria-expanded="false" aria-controls="pagesCollapseError">
-                                                        Peminjaman
-                                                    </a>
-                                                    <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#pagesCollapseError" aria-expanded="false" aria-controls="pagesCollapseError">
-                                                        Barang Rusak 
-                                                    </a>
-                                                    <!-- <div class="collapse" id="pagesCollapseError" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordionPages">
-                                                        <nav class="sb-sidenav-menu-nested nav"></nav>
-                                                    </div> -->
-                                                </nav>
-                                            </div>
-                                        </a>
+                                        
                                         <!-- Menu Kategori -->
                                         <a class="nav-link" href="kategori.php">
                                             <div class="sb-nav-link-icon"><i class="fas fa-bars"></i></div>
@@ -119,7 +93,7 @@ require '../function.php';
                                         <!-- Menu Manajemen User -->
                                         <a class="nav-link" href="admin.php">
                                         <div class="sb-nav-link-icon"><i class="fas fa-user-alt"></i></div>
-                                            &nbsp; Management User
+                                            Management User
                                         </a>
 
                                         <!-- Menu Logout -->
@@ -128,7 +102,7 @@ require '../function.php';
                                                 <path fill-rule="evenodd" d="M6 12.5a.5.5 0 0 0 .5.5h8a.5.5 0 0 0 .5-.5v-9a.5.5 0 0 0-.5-.5h-8a.5.5 0 0 0-.5.5v2a.5.5 0 0 1-1 0v-2A1.5 1.5 0 0 1 6.5 2h8A1.5 1.5 0 0 1 16 3.5v9a1.5 1.5 0 0 1-1.5 1.5h-8A1.5 1.5 0 0 1 5 12.5v-2a.5.5 0 0 1 1 0v2z"/>
                                                 <path fill-rule="evenodd" d="M.146 8.354a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L1.707 7.5H10.5a.5.5 0 0 1 0 1H1.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3z"/>
                                             </svg>
-                                            &nbsp;  Logout 
+                                            &nbsp; Logout 
                                         </a>
                         </div>
                     </div>
@@ -140,7 +114,7 @@ require '../function.php';
                             <div class="container-fluid px-4">
                                 <h1 class="mt-4">Kelola Admin</h1>
                                 <ol class="breadcrumb mb-4">
-                                 <li class="breadcrumb-item active">STAFF SARPRAS SMANILA </li>
+                                 <li class="breadcrumb-item active">Kelola Staff SARPRAS SMANILA </li>
                                 </ol>
                                 <div class="card mb-4">
                                 <div class="card-body">

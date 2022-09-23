@@ -361,7 +361,7 @@ if(isset($_POST['tambahsatuan'])){
     $kdsatuan = $_POST['kd_satuan'];
     $satuan = $_POST['satuan'];
 
-    $tambahkategori = mysqli_query($conn,"insert into satuan (satuan) values ('$satuan')");
+    $tambahsatuan = mysqli_query($conn,"insert into satuan (satuan) values ('$satuan')");
     
     if($tambahsatuan){ 
         header('location:\smanila_inventaris\super_admin\satuan.php'); 

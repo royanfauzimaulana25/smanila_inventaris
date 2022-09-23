@@ -37,14 +37,14 @@ require '../function.php';
             <!-- Navbar Search-->
             <form class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0">
                 <div class="input-group">
-                <input class="form-control" type="text" placeholder="Search for..." aria-label="Search for..." aria-describedby="btnNavbarSearch" />
-                <button class="btn btn-primary" id="btnNavbarSearch" type="button"><i class="fas fa-search"></i></button>
+                <!-- <input class="form-control" type="text" placeholder="Search for..." aria-label="Search for..." aria-describedby="btnNavbarSearch" />
+                <button class="btn btn-primary" id="btnNavbarSearch" type="button"><i class="fas fa-search"></i></button> -->
                 </div>
             </form>
             <!-- Navbar-->
             <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
                 <li class="nav-item dropdown">
-                    <a class="" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
+                    <!-- <a class="" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a> -->
                 </li>
             </ul>
         </nav>
@@ -247,7 +247,7 @@ require '../function.php';
                                         <td><?=$satuan;?></td>
                                         <td>
                                              <!-- Button Aksi Edit -->
-                                             <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#edit<?=$kodebarang;?>">
+                                             <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#edit"<?=$kodebarang;?>>
                                                     Edit
                                                 </button>
                                                 <!-- Button Aksi Hapus -->
@@ -258,7 +258,7 @@ require '../function.php';
                                     </tr>
 
                                 <!-- Edit Modal -->
-                                <div class="modal fade" id="edit<?=$kodebarang;?>">
+                                <div class="modal fade" id="edit"<?=$kodebarang;?>>
                                     <div class="modal-dialog">
                                         <div class="modal-content">
 
