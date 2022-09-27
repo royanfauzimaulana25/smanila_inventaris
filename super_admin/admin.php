@@ -116,7 +116,7 @@ require '../function.php';
                         <ol class="breadcrumb mb-4">
                             <li class="breadcrumb-item active">SARANA & PRASARANA SMANILA</li>
                         </ol>                        
-                        <!-- column Tambah Kategori -->
+                        <!-- column Tambah admin -->
                         <div class="card mb-4">
                             <div class="card-header">
                                 <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#tambahadmin">Tambah admin</button>
@@ -140,11 +140,11 @@ require '../function.php';
                                                     <br>
                                                     <input type="password" name="password" placeholder="Email" class="form-control" require>   
                                                     <br>
-                                                    <select name = "role" class="form-control" id="role" >
-                                                            <option value='role'> Pilih Role </option>
+                                                    <select name = "role" class="form-control" id="role" require>
+                                                            <option value = '' selected disabled hidden> Pilih Role </option>
                                                             <option value="super"> Super </option>
                                                             <option value="admin"> Admin </option>
-                                                        </select>        
+                                                    </select>        
                                                         <br>                                         
                                                     <button type="submit" class="btn btn-primary" name="tambahadmin">Submit</button>
                                                 </div>
@@ -211,7 +211,7 @@ require '../function.php';
                                             <!-- Delete Modal body -->
                                             <form method="post">
                                                 <div class="modal-body">
-                                                    Apakah anda yakin ingin menghapus <bold> <?=$id;?> </bold> ? 
+                                                    Apakah anda yakin ingin menghapus <bold> <?=$email;?> </bold> ? 
                                                     <input type="hidden" name="id" value="<?=$id;?>"><br><br>
                                                     <button type="submit" class="btn btn-danger" name="deleteadmin">Hapus</button>
                                                 </div>
