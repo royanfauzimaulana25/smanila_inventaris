@@ -127,7 +127,7 @@ require '../function.php';
                                             <!-- Modal body -->
                                             <form method="post">
                                                 <div class="modal-body">
-                                                    <input type="text" name="satuan" placeholder="satuan" class="form-control" require>                                                <br>
+                                                    <input type="text" name="satuan" placeholder="satuan" class="form-control" required>                                                <br>
                                                     <button type="submit" class="btn btn-primary" name="tambahsatuan">Submit</button>
                                                 </div>
                                             </form>                                                

@@ -156,9 +156,9 @@ require '../function.php';
                                             <!-- Modal body -->
                                             <form method="post">
                                                 <div class="modal-body">
-                                                    <input type="text" name="kodebarang" placeholder="Kode Barang" class="form-control" require>
+                                                    <input type="text" name="kodebarang" placeholder="Kode Barang" class="form-control" required>
                                                     <br>
-                                                    <input type="text" name="namabarang" placeholder="Nama Barang" class="form-control" require>
+                                                    <input type="text" name="namabarang" placeholder="Nama Barang" class="form-control" required>
                                                     <br>
                                                         <select name = "kategori" class="form-control" id="kategori" >
                                                         <option value=''> Pilih Kategori </option>
@@ -170,7 +170,7 @@ require '../function.php';
                                                         ?>
                                                         </select>
                                                         <br>
-                                                    <input type="number" name="jumlah" value = 0 disabled placeholder="Jumlah" class="form-control" require>
+                                                    <input type="number" name="jumlah" value = 0 disabled placeholder="Jumlah" class="form-control" required>
                                                     <br>
                                                     
                                                     <select name = "satuan" class="form-control" id="satuan" >

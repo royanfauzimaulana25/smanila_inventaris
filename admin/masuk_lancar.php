@@ -158,7 +158,7 @@ require '../function.php';
                                                             ?>
                                                     </select>
                                                     <br>
-                                                    <input type="text" name="jumlah_masuk" placeholder="Jumlah Barang Masuk" class="form-control" required>
+                                                    <input type="number" name="jumlah_masuk" placeholder="Jumlah Barang Masuk" class="form-control" required>
                                                     <br>
                                                     <button type="submit" class="btn btn-primary" name="masuk_lancar">Submit</button>                            
                                                 </div>
