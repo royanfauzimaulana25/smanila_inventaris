@@ -401,7 +401,7 @@ if(isset($_POST['tambahadmin'])){
     if($adminbaru){
         header('location:admin.php'); 
     }else{
-    header('location:admin.php'); 
+        header('location:admin.php'); 
     }
 }
 
@@ -419,7 +419,7 @@ if(isset($_POST['updateadmin'])){
         header('location:admin.php'); 
 
     } else {
-            header('location:admin.php'); 
+         header('location:admin.php'); 
     }
 }
 
