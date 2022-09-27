@@ -396,7 +396,7 @@ if(isset($_POST['tambahadmin'])){
     $password = $_POST['password'];
     $role = $_POST['role'];
 
-    $adminbaru = mysqli_query($conn,"insert into login (email, password,role) values ('$email','$password','$role')"); 
+    $adminbaru = mysqli_query($conn,"insert into login (email, password, role) values ('$email','$password','$role')"); 
 
     if($adminbaru){
         header('location:admin.php'); 
