@@ -396,12 +396,12 @@ if(isset($_POST['tambahadmin'])){
     $password = $_POST['password'];
     $role = $_POST['role'];
 
-    $adminbaru = mysqli_query($conn,"insert into login (email, password,role) values ('$email','$password','$role')"); 
+    $adminbaru = mysqli_query($conn,"insert into login (email, PASSWORD, role) value ('$email','$password','$role')"); 
 
     if($adminbaru){
         header('location:admin.php'); 
     }else{
-    header('location:admin.php'); 
+        header('location:admin.php'); 
     }
 }
 
@@ -413,7 +413,7 @@ if(isset($_POST['updateadmin'])){
     $role = $_POST['role'];
     $id = $_POST['id'];
 
-    $adminupdate = mysqli_query($conn,"update login set email='$email', password='$password', role='$role' where id='$id'"); 
+    $adminupdate = mysqli_query($conn,"update login set email='$email', PASSWORD='$password', role='$role' where id='$id'"); 
         
     if($adminupdate){
         header('location:admin.php'); 

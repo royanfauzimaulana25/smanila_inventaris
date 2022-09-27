@@ -1,5 +1,6 @@
 CREATE DATABASE inventaris_smanila;
 USE inventaris_smanila;
+SHOW inventaris_smanila
 
 CREATE TABLE login (
 	id 		INT (10) NOT NULL AUTO_INCREMENT PRIMARY KEY,
@@ -7,31 +8,32 @@ CREATE TABLE login (
 	PASSWORD 	VARCHAR (100) NOT NULL, 
 	role 		VARCHAR (100) NOT NULL
 	);
-DROP TABLE login
+
+-- DROP TABLE login
 	
 CREATE TABLE satuan (
-	kd_satuan 	VARCHAR (50) NOT NULL PRIMARY KEY ,
+	kd_satuan 	INT AUTO_INCREMENT NOT NULL PRIMARY KEY ,
 	satuan 		VARCHAR (50) NOT NULL
 	);
-DROP TABLE satuan
+-- DROP TABLE satuan
 
 CREATE TABLE kategori (
 	kd_kategori 	INT AUTO_INCREMENT NOT NULL PRIMARY KEY ,
 	kategori 	VARCHAR (50)
 	);
-DROP TABLE kategori
+-- DROP TABLE kategori
 
 CREATE TABLE jenis_aset (
 	kd_aset 	VARCHAR (50) NOT NULL PRIMARY KEY,
 	jenis_aset 	VARCHAR (50) NOT NULL
 	);
-DROP TABLE jenis_aset	
+-- DROP TABLE jenis_aset	
 
 CREATE TABLE barang (
 	kd_barang 	VARCHAR (50) NOT NULL PRIMARY KEY, 
 	nama_barang 	VARCHAR (100) NOT NULL ,
 	stok 		INT (20) NOT NULL,
-	kd_satuan 	VARCHAR (50) NOT NULL , 
+	kd_satuan 	INT NOT NULL , 
 	kd_kategori 	INT  NOT NULL,
 	kd_aset	VARCHAR (50) NOT NULL,
 	FOREIGN KEY (kd_satuan) REFERENCES satuan(kd_satuan)
@@ -41,9 +43,9 @@ CREATE TABLE barang (
 	FOREIGN KEY (kd_aset) REFERENCES jenis_aset(kd_aset)
 	);
 	
-DROP TABLE pengeluaran;
-DROP TABLE pemasukan;
-DROP TABLE barang
+-- DROP TABLE pengeluaran;
+-- DROP TABLE pemasukan;
+-- DROP TABLE barang
 	
 CREATE TABLE pengeluaran (
 	id_keluar	INT NOT NULL AUTO_INCREMENT PRIMARY KEY ,
@@ -55,7 +57,7 @@ CREATE TABLE pengeluaran (
 	FOREIGN KEY (kd_barang) REFERENCES barang(kd_barang)
 	ON UPDATE CASCADE
 	);
-DROP TABLE pengeluaran	
+-- DROP TABLE pengeluaran	
 
 CREATE TABLE pemasukan (
 	id_masuk	INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
@@ -66,7 +68,7 @@ CREATE TABLE pemasukan (
 	ON UPDATE CASCADE
 	);	
 	
-DROP TABLE pemasukan
+-- DROP TABLE pemasukan
 INSERT INTO login VALUES (
 	1,
 	'admin1@gmail.com',
@@ -121,7 +123,7 @@ INSERT INTO barang VALUES (
 	'3',
 	'Pulpen',
 	0,
-	(SELECT kd_satuan FROM satuan WHERE satuan = 'unit'),
+	(SELECT kd_satuan FROM satuan WHERE satuan = 'Unit'),
 	(SELECT kd_kategori FROM kategori WHERE kategori = 'ATK'),
 	(SELECT kd_aset FROM jenis_aset WHERE jenis_aset = 'aset lancar')
 	)
