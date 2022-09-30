@@ -175,7 +175,7 @@ require '../function.php';
                                         while($data=mysqli_fetch_array($ambildata)){ 
                                             $id = $data['id'];
                                             $email = $data['email'];
-                                            $password = $data['PASSWORD'];
+                                            $password = $data['password'];
                                             $role = $data['role'];
                                     ?>
                                     <tr>
