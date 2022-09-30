@@ -136,7 +136,7 @@ require '../function.php';
                                             <!-- Modal body -->
                                             <form method="post">
                                                 <div class="modal-body">
-                                                    <input type="text" name="kategori" placeholder="Kategori" class="form-control" require>                                                <br>
+                                                    <input type="text" name="kategori" placeholder="Kategori" class="form-control" required>                                                <br>
                                                     <button type="submit" class="btn btn-primary" name="tambahkategori">Submit</button>
                                                 </div>
                                             </form>                                                

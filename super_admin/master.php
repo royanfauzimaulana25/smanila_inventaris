@@ -271,9 +271,9 @@ require '../function.php';
                                         <!-- Modal body -->
                                         <form method="post">
                                             <div class="modal-body">
-                                                <input type="text" name="namabarang" value="<?=$namabarang;?>" class="form-control" >
+                                                <input type="text" name="namabarang" value="<?=$namabarang;?>" class="form-control" required >
                                                 <br>
-                                                <input type="number" name="jumlah" value = 0 disabled placeholder="Jumlah" class="form-control" >
+                                                <input type="number" name="jumlah" value = 0 disabled placeholder="Jumlah" class="form-control"  required >
                                                 <br>
                                                 <select name = "kategori" class="form-control" id="kategori" >
                                                     <option value=''> Pilih Kategori </option>
