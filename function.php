@@ -165,6 +165,8 @@ if(isset($_POST['delete_masuk'])){
     $barang = mysqli_query($conn,"SELECT * FROM barang where kd_barang = $kdbarang_masuk");
     $barang_data=mysqli_fetch_array($barang);  
 
+    // Logic Perhitungan Bila Stok < 0 setelah hapus
+    if ($barang_data['stok'] - $jumlah_masuk_sebelumnya >= 0){
     // Kalkulasi Perhitungan 
     $stok = $barang_data['stok'] - $jumlah_masuk_sebelumnya;
 
@@ -175,7 +177,14 @@ if(isset($_POST['delete_masuk'])){
 
     // Delete data di tabel pemasukan 
     $hapus =mysqli_query($conn, "DELETE FROM pemasukan where id_masuk = '$idmasuk'"); 
-
+    } else {
+        echo '
+            <script>
+                alert("Stok Barang yang anda pilih tidak cukup")
+                window.location.href = "keluar_lancar.php";  
+            </script>
+        ';
+    };
     // Redirect After Submit
     if($update){ 
         header('location:\smanila_inventaris\super_admin\masuk_lancar.php'); 
