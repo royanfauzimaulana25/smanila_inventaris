@@ -247,7 +247,7 @@ require '../function.php';
                                         <td><?=$satuan;?></td>
                                         <td>
                                              <!-- Button Aksi Edit -->
-                                             <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#edit"<?=$kodebarang;?>>
+                                             <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#edit<?=$kodebarang;?>">
                                                     Edit
                                                 </button>
                                                 <!-- Button Aksi Hapus -->
@@ -258,7 +258,7 @@ require '../function.php';
                                     </tr>
 
                                 <!-- Edit Modal -->
-                                <div class="modal fade" id="edit"<?=$kodebarang;?>>
+                                <div class="modal fade" id="edit<?=$kodebarang;?>">
                                     <div class="modal-dialog">
                                         <div class="modal-content">
 
