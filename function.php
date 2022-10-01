@@ -200,14 +200,14 @@ if(isset($_POST['keluar_lancar'])){
 
 
     // Ambil Data Barang
-    $barang = mysqli_query($conn,"SELECT * FROM barang where kd_barang = $kdbarangkeluar");
-    $barang_data=mysqli_fetch_array($barang);
+    $barang = mysqli_query($conn,"SELECT * FROM barang where kd_barang = '$kdbarangkeluar'");
+    $barang_data = mysqli_fetch_array($barang);
     $stok = $barang_data['stok'];
     if ($stok < $jumlahkeluar) {
         echo '
             <script>
                 alert("Stok Barang yang anda pilih tidak cukup")
-                window.location.href="\smanila_inventaris\super_admin\keluar_lancar.php";  
+                window.location.href = "keluar_lancar.php";  
             </script>
         ';
     } else {
