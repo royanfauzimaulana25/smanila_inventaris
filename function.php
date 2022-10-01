@@ -234,61 +234,6 @@ if(isset($_POST['keluar_lancar'])){
     }                        
     
 }
-//  Edit Barang Keluar
-// if(isset($_POST['update_keluar'])){ 
-//     $idkeluar = $_POST['id_keluar']; 
-//     $tanggalkeluar = $_POST['tanggal_keluar'];
-//     $kdbarangkeluar = $_POST['barang_keluar']; 
-//     $jumlahkeluar = $_POST['jumlah_keluar'];
-//     $keterangan = $_POST['keterangan'];
-//     $penerima = $_POST['penerima'];
-
-//     // Update Jumlah Stok di Tabel Barang Saat Edit Barang keluar
-//     // Ambil data stok Sebelumnya 
-//     $barang = mysqli_query($conn,"SELECT * FROM barang where kd_barang = $kdbarangkeluar");
-//     $barang_data = mysqli_fetch_array($barang);
-//     $stok = $barang_data['stok'];
-    
-//     // Ambil Data Barang keluar Sebelumnya 
-//     $pengeluaran = mysqli_query($conn,"SELECT * FROM pengeluaran where id_keluar = $idkeluar");
-//     $pengeluaran_data = mysqli_fetch_array($pengeluaran);
-//     $jumlah_keluar_sebelumnya = $pengeluaran_data['jumlah_keluar'];
-    
-//     if($jumlah_keluar_sebelumnya > $jumlahkeluar){
-//         $stok_akhir = $stok + ($jumlah_keluar_sebelumnya - $jumlahkeluar);
-        
-//         $updatejumlahstok = mysqli_query($conn,"
-//         UPDATE barang set 
-//         stok        ='$stok_akhir'
-//         WHERE kd_barang ='$kdbarangkeluar'"); 
-
-//     } else {
-//         echo '
-//         <script>
-//             alert("Stok Barang yang anda pilih tidak cukup")
-//             window.location.href="keluar_lancar.php";  
-//         </script>
-//     ';
-//     };
-
-//     $update = mysqli_query($conn,"
-//                 UPDATE pengeluaran set 
-//                     tanggal_keluar   = '$tanggalkeluar',
-//                     kd_barang       = '$kdbarangkeluar',
-//                     jumlah_keluar    = '$jumlahkeluar',
-//                     keterangan = '$keterangan',
-//                     penerima = '$penerima'
-//                     WHERE id_keluar  ='$idkeluar'"); 
-    
-                    
-//     if($update){ 
-//         header('location:keluar_lancar.php'); 
-//     } else{ 
-//         echo 'gagal';
-//         header('location:keluar_lancar.php'); 
-//     }
-// }
-
 //  Delete Barang Keluar    
 if(isset($_POST['delete_keluar'])){ 
     $idkeluar   = $_POST['id_keluar']; 

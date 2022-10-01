@@ -236,18 +236,7 @@ require '../function.php';
                                             barang.`kd_barang` = pemasukan.`kd_barang` AND kategori.`kd_kategori` = barang.`kd_kategori`
                                                 "); 
                                         };
-                                            // $ambildata = mysqli_query($conn,
-                                            //     "SELECT 
-                                            //     pemasukan.id_masuk AS id_masuk,
-                                            //     pemasukan.tanggal_masuk AS tanggal_masuk,
-                                            //     barang.nama_barang AS nama_barang,
-                                            //     pemasukan.jumlah_masuk AS jumlah_masuk,
-                                            //     kategori.`kategori` AS kategori
-                                            // FROM 
-                                            //     pemasukan, barang, kategori
-                                            // WHERE 
-                                            // barang.`kd_barang` = pemasukan.`kd_barang` AND kategori.`kd_kategori` = barang.`kd_kategori`
-                                            //     "); 
+                                            
                                             $i = 1;
                                             while($data=mysqli_fetch_array($ambildata)){ 
                                                 $idmasuk = $data['id_masuk'];
