@@ -121,7 +121,10 @@ require '../function.php';
                             <div class="col-xl-3 col-md-6">
                                 <div class="card bg-primary text-white mb-4">
                                     <div class="card-body">
+
+                                    <!-- // jumlah barang masuk -->
                                     <?php
+
                                     $cekdata = mysqli_query($conn, "select sum(jumlah_masuk) as jumlah_masuk from pemasukan"); 
                                     $fetch=mysqli_fetch_array($cekdata);
                                     $jumlah_barang_masuk = $fetch['jumlah_masuk'];
@@ -138,6 +141,8 @@ require '../function.php';
                             <div class="col-xl-3 col-md-6">
                                 <div class="card bg-warning text-white mb-4">
                                 <div class="card-body"> 
+
+                                <!-- // jumlah barang keluar  -->
                                 <?php
                                     $cekdata = mysqli_query($conn, "select sum(jumlah_keluar) as jumlah_keluar from pengeluaran"); 
                                     $fetch=mysqli_fetch_array($cekdata);
@@ -154,6 +159,8 @@ require '../function.php';
                             <div class="col-xl-3 col-md-6">
                                 <div class="card bg-success text-white mb-4">
                                     <div class="card-body">
+
+                                    <!--  jumlah asset barang   -->
                                         <?php
                                             $cekdata = mysqli_query($conn, "select count(nama_barang) as jumlah_aset from barang"); 
                                             $fetch=mysqli_fetch_array($cekdata);
@@ -170,6 +177,8 @@ require '../function.php';
                             <div class="col-xl-3 col-md-6">
                                 <div class="card bg-danger text-white mb-4">
                                     <div class="card-body">
+
+                                    <!--  barang yang sering keluar   -->
                                         <?php
                                             $cekdata = mysqli_query($conn, "
                                                 SELECT 
@@ -181,7 +190,7 @@ require '../function.php';
                                                     barang 
                                                 ON
                                                     pengeluaran.kd_barang = barang.kd_barang
-                                                GROUP BY nama_barang ASC
+                                                GROUP BY nama_barang DESC
                                                     LIMIT 1
                                             "); 
                                             $fetch=mysqli_fetch_array($cekdata);
@@ -195,88 +204,7 @@ require '../function.php';
                                 </div>
                             </div>
                         </div>
-
-                                          
-                        <!-- <div class="row">
-                            <div class="col-xl-6">
-                                <div class="card mb-4">
-                                    <div class="card-header">
-                                        <div class="btn-group">
-                                        <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-                                            Pilih Barang
-                                        </button>
-                                        <ul class="dropdown-menu">
-                                            <li><a class="dropdown-item" href="#">Action</a></li>
-                                            <li><a class="dropdown-item" href="#">Another action</a></li>
-                                            <li><a class="dropdown-item" href="#">Something else here</a></li>
-                                            <li><hr class="dropdown-divider"></li>
-                                            <li><a class="dropdown-item" href="#">Separated link</a></li>
-                                        </ul>
-                                        </div> -->
-
-                                        <!-- <div class="btn-group">
-                                        <button type="button" class="btn btn-success dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-                                            Tahun
-                                        </button>
-                                        <ul class="dropdown-menu">
-                                            <li><a class="dropdown-item" href="#">Action</a></li>
-                                            <li><a class="dropdown-item" href="#">Another action</a></li>
-                                            <li><a class="dropdown-item" href="#">Something else here</a></li>
-                                            <li><hr class="dropdown-divider"></li>
-                                            <li><a class="dropdown-item" href="#">Separated link</a></li>
-                                        </ul>
-                                        </div>
-                                    </div>
-                                    <div class="card-body"><canvas id="myAreaChart" width="100%" height="40"></canvas></div>
-                                </div>
-                            </div>
-
-
-                            <div class="col-xl-6">
-                                <div class="card mb-4">
-                                    <div class="card-header">
-                                    <div class="btn-group">
-                                        <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-                                            Pilih Barang
-                                        </button>
-                                        <ul class="dropdown-menu">
-                                            <li><a class="dropdown-item" href="#">Action</a></li>
-                                            <li><a class="dropdown-item" href="#">Another action</a></li>
-                                            <li><a class="dropdown-item" href="#">Something else here</a></li>
-                                            <li><hr class="dropdown-divider"></li>
-                                            <li><a class="dropdown-item" href="#">Separated link</a></li>
-                                        </ul>
-                                        </div>
-
-                                        <div class="btn-group">
-                                            <button type="button" class="btn btn-success dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-                                            Tahun 1
-                                            </button>
-                                            <ul class="dropdown-menu">
-                                            <li><a class="dropdown-item" href="#">Action</a></li>
-                                            <li><a class="dropdown-item" href="#">Another action</a></li>
-                                            <li><a class="dropdown-item" href="#">Something else here</a></li>
-                                            <li><hr class="dropdown-divider"></li>
-                                            <li><a class="dropdown-item" href="#">Separated link</a></li>
-                                            </ul>
-                                        </div>
-
-                                        <div class="btn-group">
-                                            <button type="button" class="btn btn-success dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-                                            Tahun 2
-                                            </button>
-                                            <ul class="dropdown-menu">
-                                            <li><a class="dropdown-item" href="#">Action</a></li>
-                                            <li><a class="dropdown-item" href="#">Another action</a></li>
-                                            <li><a class="dropdown-item" href="#">Something else here</a></li>
-                                            <li><hr class="dropdown-divider"></li>
-                                            <li><a class="dropdown-item" href="#">Separated link</a></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <div class="card-body"><canvas id="myBarChart" width="100%" height="40"></canvas></div>
-                                </div>
-                            </div> -->
+                        
                         </div>
 
                 </footer>

@@ -79,7 +79,7 @@ if(isset($_POST['masuk_lancar'])){
     $tambahbarangmasuk = mysqli_query($conn,"insert into pemasukan (tanggal_masuk, kd_barang, jumlah_masuk) values ('$tanggalmasuk', '$kdbarang', '$jumlahmasuk')");
     
     // Update Jumlah Stok Saat Barang Masuk
-    $barang = mysqli_query($conn,"SELECT * FROM barang where kd_barang = $kdbarang");
+    $barang = mysqli_query($conn,"SELECT * FROM barang where kd_barang = '$kdbarang'");
     $barang_data=mysqli_fetch_array($barang);
     $stok = $barang_data['stok'] + $jumlahmasuk;
 
@@ -108,7 +108,7 @@ if(isset($_POST['update_masuk'])){
     
     // Update Jumlah Stok di Tabel Barang Saat Edit Barang Masuk
     // Ambil data stok Sebelumnya 
-    $barang = mysqli_query($conn,"SELECT * FROM barang where kd_barang = $kdbarang_masuk");
+    $barang = mysqli_query($conn,"SELECT * FROM barang where kd_barang = '$kdbarang_masuk'");
     $barang_data = mysqli_fetch_array($barang);
     $stok = $barang_data['stok'];
     
@@ -119,27 +119,32 @@ if(isset($_POST['update_masuk'])){
     
     if($jumlah_masuk_sebelumnya > $jumlahmasuk){
         $stok_akhir = $stok - ($jumlah_masuk_sebelumnya - $jumlahmasuk);
-        
-        $updatejumlahstok = mysqli_query($conn,"
-        UPDATE barang set 
-        stok        ='$stok_akhir'
-        WHERE kd_barang ='$kdbarang_masuk'"); 
     } else {
         $stok_akhir = $stok + ($jumlahmasuk - $jumlah_masuk_sebelumnya);
-        
+    };
+
+    if ($stok_akhir >= 0){
         $updatejumlahstok = mysqli_query($conn,"
         UPDATE barang set 
         stok        ='$stok_akhir'
         WHERE kd_barang ='$kdbarang_masuk'"); 
-    };
-    // Update Tabel Barang Masuk Saat Edit Barang Masuk
-    $update = mysqli_query($conn,"
+
+        // Update Tabel Barang Masuk Saat Edit Barang Masuk
+        $update = mysqli_query($conn,"
                 UPDATE pemasukan set 
                     tanggal_masuk   = '$tanggalmasuk',
                     kd_barang       = '$kdbarang_masuk',
                     jumlah_masuk    = '$jumlahmasuk'
-                    WHERE id_masuk  ='$idmasuk'"); 
-    
+                    WHERE id_masuk  = '$idmasuk'"); 
+    } else {
+        echo '
+            <script>
+                alert("Stok Barang yang anda pilih tidak cukup")
+                window.location.href = "keluar_lancar.php";  
+            </script>
+        ';
+    }
+
     // Redirect After Submit
     if($update){ 
         header('location:\smanila_inventaris\super_admin\masuk_lancar.php'); 
@@ -162,11 +167,12 @@ if(isset($_POST['delete_masuk'])){
     $kdbarang_masuk = $pemasukan_data['kd_barang'];
     
     // Ambil data di tabel barang //
-    $barang = mysqli_query($conn,"SELECT * FROM barang where kd_barang = $kdbarang_masuk");
+    $barang = mysqli_query($conn,"SELECT * FROM barang where kd_barang = '$kdbarang_masuk'");
     $barang_data=mysqli_fetch_array($barang);  
 
     // Logic Perhitungan Bila Stok < 0 setelah hapus
     if ($barang_data['stok'] - $jumlah_masuk_sebelumnya >= 0){
+
     // Kalkulasi Perhitungan 
     $stok = $barang_data['stok'] - $jumlah_masuk_sebelumnya;
 
@@ -177,6 +183,7 @@ if(isset($_POST['delete_masuk'])){
 
     // Delete data di tabel pemasukan 
     $hapus =mysqli_query($conn, "DELETE FROM pemasukan where id_masuk = '$idmasuk'"); 
+
     } else {
         echo '
             <script>
@@ -247,7 +254,6 @@ if(isset($_POST['keluar_lancar'])){
 if(isset($_POST['delete_keluar'])){ 
     $idkeluar   = $_POST['id_keluar']; 
 
-    
     // Ambil Data Barang keluar Sebelumnya 
     $pengeluaran = mysqli_query($conn,"SELECT * FROM pengeluaran where id_keluar = $idkeluar");
     $pengeluaran_data = mysqli_fetch_array($pengeluaran);
@@ -255,8 +261,9 @@ if(isset($_POST['delete_keluar'])){
     $kdbarangkeluar =  $pengeluaran_data['kd_barang'];
 
     //  Ambil data stok Sebelumnya 
-    $barang = mysqli_query($conn,"SELECT * FROM barang where kd_barang = $kdbarangkeluar");
+    $barang = mysqli_query($conn,"SELECT * FROM barang where kd_barang = '$kdbarangkeluar'");
     $barang_data = mysqli_fetch_array($barang);
+
     $stok = $barang_data['stok'] + $jumlah_keluar_sebelumnya;
     $updatejumlahstok = mysqli_query($conn,"
         UPDATE barang set 
